@@ -1,0 +1,140 @@
+{
+  "low_elixir": {
+    "elixir_range": "0-3",
+    "strategies": ["defensive_cycling", "elixir_building", "wait_for_advantage"],
+    "priorities": ["defense", "elixir_recovery", "efficiency"],
+    "risks": ["enemy_push", "tower_damage", "elixir_disadvantage"],
+    "recommended_actions": ["play_cheapest_card", "defend_center", "build_elixir"],
+    "card_priorities": {
+      "high": ["cheap_defense", "elixir_builders"],
+      "medium": ["efficient_trades", "information_cards"],
+      "low": ["expensive_cards", "win_conditions"]
+    }
+  },
+  "medium_elixir": {
+    "elixir_range": "4-6",
+    "strategies": ["efficient_trades", "counter_pushing", "positioning_advantage"],
+    "priorities": ["efficiency", "positioning", "counter_potential"],
+    "risks": ["overcommit", "bad_trades", "positioning_loss"],
+    "recommended_actions": ["defend_efficiently", "build_counter_push", "control_elixir"],
+    "card_priorities": {
+      "high": ["efficient_defense", "counter_cards"],
+      "medium": ["support_cards", "positioning_cards"],
+      "low": ["expensive_commits", "risky_plays"]
+    }
+  },
+  "high_elixir": {
+    "elixir_range": "7-10",
+    "strategies": ["win_condition_commit", "pressure_application", "tower_damage"],
+    "priorities": ["damage", "pressure", "tower_taking"],
+    "risks": ["counter_push", "elixir_dry", "enemy_advantage"],
+    "recommended_actions": ["commit_win_condition", "apply_pressure", "support_push"],
+    "card_priorities": {
+      "high": ["win_conditions", "pressure_cards"],
+      "medium": ["support_cards", "spells"],
+      "low": ["defensive_cards", "cheap_cards"]
+    }
+  },
+  "early_game": {
+    "time_range": "0-60",
+    "strategies": ["information_gathering", "defensive_cycling", "elixir_building"],
+    "priorities": ["defense", "information", "elixir_efficiency"],
+    "risks": ["early_pressure", "information_loss", "elixir_disadvantage"],
+    "recommended_actions": ["gather_information", "defend_efficiently", "build_elixir"],
+    "card_priorities": {
+      "high": ["information_cards", "cheap_defense"],
+      "medium": ["efficient_trades", "elixir_builders"],
+      "low": ["expensive_commits", "win_conditions"]
+    }
+  },
+  "mid_game": {
+    "time_range": "60-180",
+    "strategies": ["counter_pushing", "elixir_management", "positioning_advantage"],
+    "priorities": ["efficiency", "positioning", "counter_potential"],
+    "risks": ["overcommit", "bad_trades", "positioning_loss"],
+    "recommended_actions": ["counter_push", "manage_elixir", "position_advantage"],
+    "card_priorities": {
+      "high": ["counter_cards", "efficient_trades"],
+      "medium": ["support_cards", "positioning_cards"],
+      "low": ["risky_plays", "expensive_commits"]
+    }
+  },
+  "late_game": {
+    "time_range": "180+",
+    "strategies": ["win_condition_commit", "spell_damage", "tower_pressure"],
+    "priorities": ["damage", "pressure", "tower_taking"],
+    "risks": ["counter_push", "elixir_dry", "time_pressure"],
+    "recommended_actions": ["commit_win_condition", "apply_spell_damage", "pressure_towers"],
+    "card_priorities": {
+      "high": ["win_conditions", "spells"],
+      "medium": ["pressure_cards", "support_cards"],
+      "low": ["defensive_cards", "cheap_cards"]
+    }
+  },
+  "double_elixir": {
+    "elixir_multiplier": 2.0,
+    "strategies": ["aggressive_pressure", "spell_damage", "win_condition_commit"],
+    "priorities": ["damage", "pressure", "tower_taking"],
+    "risks": ["counter_push", "elixir_dry", "enemy_advantage"],
+    "recommended_actions": ["apply_aggressive_pressure", "use_spell_damage", "commit_win_condition"],
+    "card_priorities": {
+      "high": ["win_conditions", "spells", "pressure_cards"],
+      "medium": ["support_cards", "efficient_trades"],
+      "low": ["defensive_cards", "cheap_cards"]
+    }
+  },
+  "situational_decisions": {
+    "enemy_advantage": {
+      "strategies": ["defensive_cycling", "elixir_recovery", "counter_opportunity"],
+      "priorities": ["defense", "elixir_recovery", "counter_potential"],
+      "risks": ["further_disadvantage", "tower_damage", "elixir_dry"],
+      "recommended_actions": ["defend_efficiently", "recover_elixir", "wait_for_counter"]
+    },
+    "our_advantage": {
+      "strategies": ["pressure_maintenance", "win_condition_commit", "advantage_preservation"],
+      "priorities": ["pressure", "damage", "advantage_maintenance"],
+      "risks": ["counter_push", "advantage_loss", "overcommit"],
+      "recommended_actions": ["maintain_pressure", "commit_win_condition", "preserve_advantage"]
+    },
+    "even_state": {
+      "strategies": ["efficiency_focus", "positioning_advantage", "information_gathering"],
+      "priorities": ["efficiency", "positioning", "information"],
+      "risks": ["inefficient_trades", "positioning_loss", "information_loss"],
+      "recommended_actions": ["play_efficiently", "position_advantage", "gather_information"]
+    }
+  },
+  "elixir_efficiency": {
+    "positive_trades": {
+      "description": "Trades que geram vantagem de elixir",
+      "examples": ["minipekka_vs_giant", "fireball_vs_3musketeers", "zap_vs_minions"],
+      "priority": "high",
+      "recommended": "always_look_for"
+    },
+    "neutral_trades": {
+      "description": "Trades que mantêm equilíbrio de elixir",
+      "examples": ["knight_vs_knight", "musketeer_vs_musketeer", "archers_vs_archers"],
+      "priority": "medium",
+      "recommended": "acceptable_when_needed"
+    },
+    "negative_trades": {
+      "description": "Trades que geram desvantagem de elixir",
+      "examples": ["zap_vs_giant", "archers_vs_fireball", "knight_vs_pekka"],
+      "priority": "low",
+      "recommended": "avoid_when_possible"
+    }
+  },
+  "timing_windows": {
+    "optimal_play_times": {
+      "description": "Momentos ideais para jogar cartas",
+      "examples": ["after_enemy_commit", "during_elixir_advantage", "after_defense"],
+      "priority": "high",
+      "recommended": "wait_for_optimal_timing"
+    },
+    "risky_play_times": {
+      "description": "Momentos arriscados para jogar cartas",
+      "examples": ["during_enemy_push", "low_elixir_state", "unknown_enemy_hand"],
+      "priority": "low",
+      "recommended": "avoid_unless_necessary"
+    }
+  }
+}

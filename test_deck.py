@@ -1,0 +1,86 @@
+#!/usr/bin/env python3
+"""
+Script para testar o novo deck configurado
+"""
+
+def main():
+    print("=" * 60)
+    print("    TESTE DO NOVO DECK CONFIGURADO")
+    print("=" * 60)
+    print()
+    
+    print("🎯 NOVO DECK OTIMIZADO:")
+    print()
+    print("1. Giant (Gigante) - Tanque principal")
+    print("2. Musketeer (Mosqueteira) - Dano aéreo")
+    print("3. Witch (Bruxa) - Suporte e defesa")
+    print("4. Baby Dragon (Bebê Dragão) - Ataque aéreo")
+    print("5. Knight (Cavaleiro) - Defesa terrestre")
+    print("6. Archers (Arqueiras) - Defesa aérea")
+    print("7. Fireball (Bola de Fogo) - Feitiço de dano")
+    print("8. Zap (Choque) - Feitiço rápido")
+    print()
+    
+    print("⚙️ CONFIGURAÇÕES OTIMIZADAS:")
+    print()
+    print("✅ Log Level: INFO (menos logs, melhor performance)")
+    print("✅ Action Delay: 0.8s (ações mais rápidas)")
+    print("✅ Visualizer: Ativado (para ver o que o bot está vendo)")
+    print("✅ Save Images: Desativado (melhor performance)")
+    print()
+    
+    print("🎮 ESTRATÉGIA DO DECK:")
+    print()
+    print("🔵 DEFESA:")
+    print("   - Knight + Archers para defesa terrestre/aérea")
+    print("   - Witch para suporte e defesa contra hordas")
+    print("   - Musketeer para defesa aérea")
+    print()
+    print("🔴 ATAQUE:")
+    print("   - Giant como tanque principal")
+    print("   - Baby Dragon para suporte aéreo")
+    print("   - Fireball para dano em área")
+    print("   - Zap para resetar e dano rápido")
+    print()
+    
+    print("📋 COMO USAR:")
+    print()
+    print("1. Execute: python main.py")
+    print("2. Clique em 'Start Bot'")
+    print("3. Configure o mesmo deck no Clash Royale")
+    print("4. Inicie uma partida")
+    print("5. O bot jogará automaticamente!")
+    print()
+    
+    print("🔧 DICAS PARA MELHOR DESEMPENHO:")
+    print()
+    print("• Certifique-se de que o deck no jogo está na mesma ordem")
+    print("• Mantenha o BlueStacks em tela cheia")
+    print("• Use resolução 1920x1080 se possível")
+    print("• Monitore os logs na aba 'Logs'")
+    print("• Use Ctrl+P para pausar/retomar se necessário")
+    print()
+    
+    print("⚠️ SOLUÇÃO DE PROBLEMAS:")
+    print()
+    print("Se o bot não jogar bem:")
+    print("• Aumente Action Delay para 1.0 no config.yaml")
+    print("• Verifique se as cartas estão na ordem correta")
+    print("• Certifique-se de que o Clash Royale está em tela cheia")
+    print("• Reinicie o emulador se necessário")
+    print()
+    
+    print("🎉 PRÓXIMOS PASSOS:")
+    print()
+    print("1. Teste o novo deck em partidas simples")
+    print("2. Monitore o desempenho")
+    print("3. Ajuste as configurações conforme necessário")
+    print("4. Experimente outros decks do guia CONFIGURACAO_DECK.md")
+    print()
+    
+    print("=" * 60)
+    print("    BOA SORTE! 🚀")
+    print("=" * 60)
+
+if __name__ == "__main__":
+    main()

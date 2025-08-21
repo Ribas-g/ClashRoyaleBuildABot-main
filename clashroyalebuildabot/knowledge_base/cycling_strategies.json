@@ -1,0 +1,449 @@
+{
+  "cycling_fundamentals": {
+    "what_is_cycling": {
+      "description": "Ciclar é jogar cartas rapidamente para chegar na carta desejada",
+      "purposes": [
+        "reach_win_condition",
+        "find_counter_card",
+        "gain_elixir_advantage",
+        "apply_pressure",
+        "defensive_cycling"
+      ],
+      "when_to_cycle": [
+        "need_specific_card",
+        "enemy_committed_elixir",
+        "advantageous_position",
+        "defensive_situation"
+      ]
+    },
+    "cycling_situations": {
+      "offensive_cycling": {
+        "description": "Ciclar para aplicar pressão ou encontrar win condition",
+        "scenarios": [
+          {
+            "situation": "need_win_condition",
+            "priority": "highest",
+            "elixir_cost": "variable",
+            "expected_outcome": "win_condition_available",
+            "risks": ["waste_elixir", "enemy_counter"]
+          },
+          {
+            "situation": "enemy_committed",
+            "priority": "high",
+            "elixir_cost": "cheap_cards",
+            "expected_outcome": "pressure_advantage",
+            "risks": ["enemy_defense", "elixir_waste"]
+          },
+          {
+            "situation": "advantage_state",
+            "priority": "medium",
+            "elixir_cost": "efficient_cards",
+            "expected_outcome": "maintain_advantage",
+            "risks": ["overcommit", "counter_push"]
+          }
+        ]
+      },
+      "defensive_cycling": {
+        "description": "Ciclar para encontrar counters defensivos",
+        "scenarios": [
+          {
+            "situation": "enemy_win_condition",
+            "priority": "highest",
+            "elixir_cost": "cheap_cards",
+            "expected_outcome": "counter_available",
+            "risks": ["tower_damage", "elixir_disadvantage"]
+          },
+          {
+            "situation": "under_pressure",
+            "priority": "high",
+            "elixir_cost": "defensive_cards",
+            "expected_outcome": "defensive_setup",
+            "risks": ["further_pressure", "elixir_dry"]
+          },
+          {
+            "situation": "need_spell",
+            "priority": "medium",
+            "elixir_cost": "spell_cards",
+            "expected_outcome": "spell_available",
+            "risks": ["miss_timing", "waste_elixir"]
+          }
+        ]
+      },
+      "information_cycling": {
+        "description": "Ciclar para ganhar informações sobre o deck inimigo",
+        "scenarios": [
+          {
+            "situation": "early_game",
+            "priority": "high",
+            "elixir_cost": "cheapest_card",
+            "expected_outcome": "deck_revelation",
+            "risks": ["early_pressure", "information_loss"]
+          },
+          {
+            "situation": "unknown_enemy_hand",
+            "priority": "medium",
+            "elixir_cost": "safe_cards",
+            "expected_outcome": "hand_revelation",
+            "risks": ["enemy_advantage", "waste_elixir"]
+          }
+        ]
+      }
+    }
+  },
+  "elixir_management": {
+    "our_elixir_tracking": {
+      "description": "Rastreamento preciso do nosso elixir",
+      "calculation_methods": [
+        {
+          "method": "real_time_tracking",
+          "description": "Calcular elixir em tempo real baseado em ações",
+          "formula": "current_elixir = base_elixir + time_bonus - spent_elixir",
+          "accuracy": "high"
+        },
+        {
+          "method": "action_based",
+          "description": "Rastrear elixir baseado em cada ação tomada",
+          "formula": "elixir_after_action = elixir_before_action - action_cost",
+          "accuracy": "very_high"
+        }
+      ],
+      "elixir_efficiency": {
+        "positive_trades": {
+          "description": "Trades que geram vantagem de elixir",
+          "examples": [
+            {
+              "trade": "minipekka_vs_giant",
+              "our_cost": 4,
+              "enemy_cost": 5,
+              "advantage": "+1",
+              "effectiveness": "excellent"
+            },
+            {
+              "trade": "fireball_vs_3musketeers",
+              "our_cost": 4,
+              "enemy_cost": 9,
+              "advantage": "+5",
+              "effectiveness": "excellent"
+            }
+          ]
+        },
+        "neutral_trades": {
+          "description": "Trades que mantêm equilíbrio de elixir",
+          "examples": [
+            {
+              "trade": "knight_vs_knight",
+              "our_cost": 3,
+              "enemy_cost": 3,
+              "advantage": "0",
+              "effectiveness": "good"
+            }
+          ]
+        },
+        "negative_trades": {
+          "description": "Trades que geram desvantagem de elixir",
+          "examples": [
+            {
+              "trade": "zap_vs_giant",
+              "our_cost": 2,
+              "enemy_cost": 5,
+              "advantage": "-3",
+              "effectiveness": "poor"
+            }
+          ]
+        }
+      }
+    },
+    "enemy_elixir_tracking": {
+      "description": "Rastreamento do elixir inimigo",
+      "tracking_methods": [
+        {
+          "method": "action_analysis",
+          "description": "Analisar ações do inimigo para calcular elixir",
+          "accuracy": "high",
+          "limitations": ["unknown_hand", "spell_usage"]
+        },
+        {
+          "method": "timing_analysis",
+          "description": "Usar timing entre jogadas para estimar elixir",
+          "accuracy": "medium",
+          "limitations": ["variable_play_speed", "deliberate_delays"]
+        },
+        {
+          "method": "pattern_recognition",
+          "description": "Reconhecer padrões de jogo para prever elixir",
+          "accuracy": "medium",
+          "limitations": ["unpredictable_players", "new_strategies"]
+        }
+      ],
+      "enemy_elixir_states": {
+        "elixir_dry": {
+          "description": "Inimigo com pouco elixir (0-3)",
+          "opportunities": [
+            "apply_pressure",
+            "commit_win_condition",
+            "spell_damage",
+            "split_pressure"
+          ],
+          "risks": [
+            "enemy_counter_spell",
+            "enemy_cheap_defense",
+            "enemy_building"
+          ]
+        },
+        "medium_elixir": {
+          "description": "Inimigo com elixir médio (4-7)",
+          "opportunities": [
+            "efficient_trades",
+            "counter_push",
+            "positioning_advantage"
+          ],
+          "risks": [
+            "enemy_counter",
+            "enemy_push",
+            "enemy_spell"
+          ]
+        },
+        "full_elixir": {
+          "description": "Inimigo com elixir cheio (8-10)",
+          "opportunities": [
+            "defensive_setup",
+            "elixir_building",
+            "information_gathering"
+          ],
+          "risks": [
+            "enemy_commit",
+            "enemy_push",
+            "enemy_advantage"
+          ]
+        }
+      }
+    }
+  },
+  "advanced_cycling_strategies": {
+    "cycle_timing": {
+      "description": "Timing ideal para ciclar",
+      "optimal_moments": [
+        {
+          "moment": "after_enemy_commit",
+          "description": "Ciclar após inimigo comprometer elixir",
+          "advantage": "enemy_cannot_counter",
+          "risk": "enemy_has_reserve"
+        },
+        {
+          "moment": "during_advantage",
+          "description": "Ciclar quando estamos em vantagem",
+          "advantage": "safe_to_cycle",
+          "risk": "lose_advantage"
+        },
+        {
+          "moment": "before_enemy_push",
+          "description": "Ciclar antes do inimigo fazer push",
+          "advantage": "prepare_defense",
+          "risk": "enemy_pushes_earlier"
+        }
+      ],
+      "avoid_cycling": [
+        {
+          "moment": "enemy_full_elixir",
+          "reason": "enemy_can_counter_easily",
+          "alternative": "wait_for_commit"
+        },
+        {
+          "moment": "under_pressure",
+          "reason": "need_defense_immediately",
+          "alternative": "defend_first"
+        },
+        {
+          "moment": "low_elixir",
+          "reason": "cannot_afford_cycle",
+          "alternative": "build_elixir"
+        }
+      ]
+    },
+    "cycle_efficiency": {
+      "description": "Como ciclar com máxima eficiência",
+      "efficient_cycling": [
+        {
+          "strategy": "cheapest_card_first",
+          "description": "Sempre jogar a carta mais barata primeiro",
+          "elixir_saved": "1-2",
+          "priority": "highest"
+        },
+        {
+          "strategy": "safe_positioning",
+          "description": "Posicionar cartas de ciclo em posições seguras",
+          "elixir_saved": "0-1",
+          "priority": "high"
+        },
+        {
+          "strategy": "defensive_cycling",
+          "description": "Ciclar com cartas que também defendem",
+          "elixir_saved": "1-3",
+          "priority": "high"
+        }
+      ],
+      "inefficient_cycling": [
+        {
+          "mistake": "expensive_cycle",
+          "description": "Ciclar com cartas caras",
+          "elixir_waste": "2-4",
+          "avoidance": "use_cheapest_available"
+        },
+        {
+          "mistake": "unsafe_cycle",
+          "description": "Ciclar em posições perigosas",
+          "elixir_waste": "1-2",
+          "avoidance": "safe_positioning"
+        },
+        {
+          "mistake": "reactive_cycle",
+          "description": "Ciclar em resposta a ameaças",
+          "elixir_waste": "2-3",
+          "avoidance": "proactive_cycling"
+        }
+      ]
+    },
+    "cycle_combinations": {
+      "description": "Combinações eficientes de cycling",
+      "combinations": [
+        {
+          "name": "defensive_cycle",
+          "cards": ["knight", "archers", "zap"],
+          "total_cost": 6,
+          "purpose": "defensive_setup",
+          "effectiveness": "high"
+        },
+        {
+          "name": "pressure_cycle",
+          "cards": ["archers", "knight", "fireball"],
+          "total_cost": 8,
+          "purpose": "apply_pressure",
+          "effectiveness": "medium"
+        },
+        {
+          "name": "information_cycle",
+          "cards": ["zap", "archers"],
+          "total_cost": 4,
+          "purpose": "gain_information",
+          "effectiveness": "high"
+        }
+      ]
+    }
+  },
+  "situational_cycling": {
+    "deck_specific_cycling": {
+      "beatdown_decks": {
+        "description": "Ciclar em decks beatdown",
+        "priorities": [
+          "find_win_condition",
+          "build_elixir",
+          "defensive_setup"
+        ],
+        "cycle_cards": ["cheap_defense", "elixir_builders"],
+        "avoid_cycling": ["win_condition", "support_cards"]
+      },
+      "cycle_decks": {
+        "description": "Ciclar em decks de ciclo",
+        "priorities": [
+          "fast_cycling",
+          "pressure_constant",
+          "elixir_efficiency"
+        ],
+        "cycle_cards": ["cheapest_cards", "efficient_defense"],
+        "avoid_cycling": ["win_condition", "key_counters"]
+      },
+      "control_decks": {
+        "description": "Ciclar em decks de controle",
+        "priorities": [
+          "find_counters",
+          "defensive_setup",
+          "elixir_management"
+        ],
+        "cycle_cards": ["defensive_cards", "spells"],
+        "avoid_cycling": ["key_counters", "win_condition"]
+      }
+    },
+    "game_phase_cycling": {
+      "early_game": {
+        "description": "Ciclar no início do jogo",
+        "priorities": [
+          "information_gathering",
+          "defensive_setup",
+          "elixir_building"
+        ],
+        "cycle_strategy": "conservative",
+        "elixir_threshold": "6+"
+      },
+      "mid_game": {
+        "description": "Ciclar no meio do jogo",
+        "priorities": [
+          "find_counters",
+          "apply_pressure",
+          "efficient_trades"
+        ],
+        "cycle_strategy": "balanced",
+        "elixir_threshold": "4+"
+      },
+      "late_game": {
+        "description": "Ciclar no final do jogo",
+        "priorities": [
+          "find_win_condition",
+          "spell_damage",
+          "pressure_application"
+        ],
+        "cycle_strategy": "aggressive",
+        "elixir_threshold": "2+"
+      }
+    }
+  },
+  "elixir_calculation_algorithms": {
+    "our_elixir_formula": {
+      "description": "Fórmula para calcular nosso elixir",
+      "base_formula": "current_elixir = min(10, base_elixir + time_bonus - spent_elixir)",
+      "variables": {
+        "base_elixir": "Elixir inicial (geralmente 5)",
+        "time_bonus": "Elixir ganho por tempo (0.1 por segundo)",
+        "spent_elixir": "Elixir gasto em ações"
+      },
+      "calculation_steps": [
+        "track_initial_elixir",
+        "add_time_bonus",
+        "subtract_action_costs",
+        "apply_maximum_limit"
+      ]
+    },
+    "enemy_elixir_estimation": {
+      "description": "Estimativa do elixir inimigo",
+      "estimation_methods": [
+        {
+          "method": "action_tracking",
+          "formula": "enemy_elixir = estimated_start - sum(action_costs)",
+          "accuracy": "high",
+          "limitations": ["unknown_actions", "spell_usage"]
+        },
+        {
+          "method": "timing_analysis",
+          "formula": "enemy_elixir = base_elixir + (time_since_last_action * 0.1)",
+          "accuracy": "medium",
+          "limitations": ["variable_speed", "deliberate_delays"]
+        }
+      ]
+    },
+    "elixir_advantage_calculation": {
+      "description": "Calcular vantagem de elixir",
+      "formula": "advantage = our_elixir - enemy_elixir",
+      "interpretation": {
+        "positive": "Nossa vantagem",
+        "negative": "Desvantagem nossa",
+        "zero": "Equilíbrio"
+      },
+      "strategic_implications": {
+        "advantage_3+": "Aplicar pressão agressiva",
+        "advantage_1-2": "Manter pressão moderada",
+        "equilibrium": "Jogar equilibrado",
+        "disadvantage_1-2": "Jogar defensivo",
+        "disadvantage_3+": "Jogar muito defensivo"
+      }
+    }
+  }
+}

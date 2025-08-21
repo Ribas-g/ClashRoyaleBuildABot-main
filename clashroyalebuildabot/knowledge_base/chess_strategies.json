@@ -1,0 +1,280 @@
+{
+  "opening_strategies": {
+    "information_gathering": {
+      "description": "Coletar informações sobre o deck inimigo",
+      "moves": [
+        {
+          "move": "cycle_cheapest_card",
+          "priority": "highest",
+          "reasoning": "Ganhar informação sobre o deck inimigo",
+          "expected_outcome": "deck_revelation",
+          "elixir_cost": 1
+        },
+        {
+          "move": "defensive_positioning",
+          "priority": "high",
+          "reasoning": "Preparar defesa sem comprometer elixir",
+          "expected_outcome": "defensive_setup",
+          "elixir_cost": 2
+        }
+      ]
+    },
+    "elixir_building": {
+      "description": "Construir vantagem de elixir",
+      "moves": [
+        {
+          "move": "passive_play",
+          "priority": "high",
+          "reasoning": "Deixar inimigo jogar primeiro",
+          "expected_outcome": "elixir_advantage",
+          "elixir_cost": 0
+        },
+        {
+          "move": "efficient_defense",
+          "priority": "medium",
+          "reasoning": "Defender com eficiência máxima",
+          "expected_outcome": "positive_trade",
+          "elixir_cost": 3
+        }
+      ]
+    }
+  },
+  "mid_game_strategies": {
+    "counter_push_planning": {
+      "description": "Planejar contra-ataques eficientes",
+      "moves": [
+        {
+          "move": "save_counter_cards",
+          "priority": "highest",
+          "reasoning": "Manter counters para situações críticas",
+          "expected_outcome": "defensive_readiness",
+          "elixir_cost": 0
+        },
+        {
+          "move": "build_push_after_defense",
+          "priority": "high",
+          "reasoning": "Aproveitar tropas sobreviventes",
+          "expected_outcome": "counter_push",
+          "elixir_cost": 4
+        }
+      ]
+    },
+    "elixir_management": {
+      "description": "Gerenciar elixir para vantagem",
+      "moves": [
+        {
+          "move": "efficient_trades",
+          "priority": "highest",
+          "reasoning": "Sempre buscar trades positivos",
+          "expected_outcome": "elixir_advantage",
+          "elixir_cost": "variable"
+        },
+        {
+          "move": "avoid_overcommit",
+          "priority": "high",
+          "reasoning": "Não gastar todo elixir de uma vez",
+          "expected_outcome": "defensive_reserve",
+          "elixir_cost": 0
+        }
+      ]
+    }
+  },
+  "late_game_strategies": {
+    "win_condition_commitment": {
+      "description": "Comprometer win conditions no momento certo",
+      "moves": [
+        {
+          "move": "commit_win_condition",
+          "priority": "highest",
+          "reasoning": "Jogar win condition quando há vantagem",
+          "expected_outcome": "tower_damage",
+          "elixir_cost": 5
+        },
+        {
+          "move": "support_win_condition",
+          "priority": "high",
+          "reasoning": "Suportar win condition com tropas",
+          "expected_outcome": "push_success",
+          "elixir_cost": 3
+        }
+      ]
+    },
+    "spell_damage": {
+      "description": "Usar spells para dano direto",
+      "moves": [
+        {
+          "move": "spell_cycle",
+          "priority": "medium",
+          "reasoning": "Ciclar spells para dano constante",
+          "expected_outcome": "tower_damage",
+          "elixir_cost": 3
+        },
+        {
+          "move": "spell_counter",
+          "priority": "high",
+          "reasoning": "Usar spells para eliminar tropas",
+          "expected_outcome": "positive_trade",
+          "elixir_cost": 4
+        }
+      ]
+    }
+  },
+  "prediction_strategies": {
+    "deck_reading": {
+      "description": "Ler o deck inimigo baseado nas cartas jogadas",
+      "moves": [
+        {
+          "move": "identify_archetype",
+          "priority": "highest",
+          "reasoning": "Identificar tipo de deck inimigo",
+          "expected_outcome": "strategy_adaptation",
+          "elixir_cost": 0
+        },
+        {
+          "move": "predict_next_cards",
+          "priority": "high",
+          "reasoning": "Prever próximas cartas do ciclo",
+          "expected_outcome": "preparation",
+          "elixir_cost": 0
+        }
+      ]
+    },
+    "counter_preparation": {
+      "description": "Preparar counters para cartas esperadas",
+      "moves": [
+        {
+          "move": "save_specific_counter",
+          "priority": "highest",
+          "reasoning": "Manter counter específico para carta esperada",
+          "expected_outcome": "defensive_readiness",
+          "elixir_cost": 0
+        },
+        {
+          "move": "position_for_counter",
+          "priority": "high",
+          "reasoning": "Posicionar tropas para counter eficiente",
+          "expected_outcome": "optimal_positioning",
+          "elixir_cost": 2
+        }
+      ]
+    }
+  },
+  "advanced_tactics": {
+    "bait_strategies": {
+      "description": "Estratégias de isca para forçar spells",
+      "moves": [
+        {
+          "move": "bait_spells",
+          "priority": "medium",
+          "reasoning": "Forçar inimigo a usar spells",
+          "expected_outcome": "spell_waste",
+          "elixir_cost": 2
+        },
+        {
+          "move": "protect_win_condition",
+          "priority": "high",
+          "reasoning": "Proteger win condition após bait",
+          "expected_outcome": "push_success",
+          "elixir_cost": 5
+        }
+      ]
+    },
+    "split_pressure": {
+      "description": "Aplicar pressão em duas lanes",
+      "moves": [
+        {
+          "move": "split_attack",
+          "priority": "medium",
+          "reasoning": "Dividir defesa inimiga",
+          "expected_outcome": "defensive_split",
+          "elixir_cost": 6
+        },
+        {
+          "move": "commit_to_weak_lane",
+          "priority": "high",
+          "reasoning": "Comprometer na lane mais fraca",
+          "expected_outcome": "tower_damage",
+          "elixir_cost": 5
+        }
+      ]
+    },
+    "elixir_dry_exploitation": {
+      "description": "Explorar momentos de elixir seco",
+      "moves": [
+        {
+          "move": "pressure_after_defense",
+          "priority": "highest",
+          "reasoning": "Aplicar pressão após defesa bem-sucedida",
+          "expected_outcome": "tower_damage",
+          "elixir_cost": 4
+        },
+        {
+          "move": "spell_damage",
+          "priority": "high",
+          "reasoning": "Usar spells quando inimigo está seco",
+          "expected_outcome": "tower_damage",
+          "elixir_cost": 3
+        }
+      ]
+    }
+  },
+  "situational_analysis": {
+    "advantage_state": {
+      "description": "Estratégias quando estamos em vantagem",
+      "moves": [
+        {
+          "move": "maintain_pressure",
+          "priority": "highest",
+          "reasoning": "Manter pressão constante",
+          "expected_outcome": "advantage_maintenance",
+          "elixir_cost": "variable"
+        },
+        {
+          "move": "avoid_risky_plays",
+          "priority": "high",
+          "reasoning": "Não arriscar vantagem conquistada",
+          "expected_outcome": "advantage_preservation",
+          "elixir_cost": 0
+        }
+      ]
+    },
+    "disadvantage_state": {
+      "description": "Estratégias quando estamos em desvantagem",
+      "moves": [
+        {
+          "move": "defensive_cycling",
+          "priority": "highest",
+          "reasoning": "Ciclar defensivamente para recuperar",
+          "expected_outcome": "elixir_recovery",
+          "elixir_cost": 2
+        },
+        {
+          "move": "wait_for_counter",
+          "priority": "high",
+          "reasoning": "Esperar momento para contra-ataque",
+          "expected_outcome": "counter_opportunity",
+          "elixir_cost": 0
+        }
+      ]
+    },
+    "even_state": {
+      "description": "Estratégias quando o jogo está equilibrado",
+      "moves": [
+        {
+          "move": "efficiency_focus",
+          "priority": "highest",
+          "reasoning": "Focar em eficiência máxima",
+          "expected_outcome": "advantage_building",
+          "elixir_cost": "variable"
+        },
+        {
+          "move": "information_gathering",
+          "priority": "high",
+          "reasoning": "Continuar coletando informações",
+          "expected_outcome": "better_decisions",
+          "elixir_cost": 1
+        }
+      ]
+    }
+  }
+}

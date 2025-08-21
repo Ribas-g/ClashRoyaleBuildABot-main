@@ -1,0 +1,187 @@
+{
+  "giant_beatdown_vs_cycle": {
+    "difficulty": "hard",
+    "win_rate": 0.35,
+    "key_strategies": {
+      "giant_player": ["slow_push", "defend_cycle_attacks", "elixir_management"],
+      "cycle_player": ["fast_cycling", "defend_giant_pushes", "pressure_constant"]
+    },
+    "critical_moments": ["first_giant_push", "cycle_counter_attack", "elixir_advantage"],
+    "elixir_management": "cycle_favored",
+    "positioning": "cycle_advantage",
+    "card_priorities": {
+      "giant_player": ["defensive_efficiency", "giant_support", "elixir_building"],
+      "cycle_player": ["fast_cycling", "efficient_defense", "pressure_maintenance"]
+    }
+  },
+  "giant_beatdown_vs_control": {
+    "difficulty": "medium",
+    "win_rate": 0.50,
+    "key_strategies": {
+      "giant_player": ["build_giant_push", "support_giant", "pressure_application"],
+      "control_player": ["defend_efficiently", "counter_push", "elixir_management"]
+    },
+    "critical_moments": ["giant_push_timing", "counter_push_opportunity", "elixir_advantage"],
+    "elixir_management": "even",
+    "positioning": "control_advantage",
+    "card_priorities": {
+      "giant_player": ["giant_support", "pressure_cards", "defensive_efficiency"],
+      "control_player": ["efficient_defense", "counter_cards", "elixir_efficiency"]
+    }
+  },
+  "giant_beatdown_vs_defensive": {
+    "difficulty": "medium",
+    "win_rate": 0.55,
+    "key_strategies": {
+      "giant_player": ["build_giant_push", "support_giant", "pressure_application"],
+      "defensive_player": ["defend_strong", "counter_push", "building_placement"]
+    },
+    "critical_moments": ["giant_push_timing", "building_counter", "counter_push_opportunity"],
+    "elixir_management": "giant_favored",
+    "positioning": "defensive_advantage",
+    "card_priorities": {
+      "giant_player": ["giant_support", "building_counters", "pressure_cards"],
+      "defensive_player": ["building_defense", "counter_cards", "defensive_efficiency"]
+    }
+  },
+  "cycle_vs_control": {
+    "difficulty": "hard",
+    "win_rate": 0.45,
+    "key_strategies": {
+      "cycle_player": ["fast_cycling", "pressure_constant", "elixir_efficiency"],
+      "control_player": ["defend_efficiently", "counter_push", "elixir_management"]
+    },
+    "critical_moments": ["cycle_timing", "counter_push_opportunity", "elixir_advantage"],
+    "elixir_management": "cycle_favored",
+    "positioning": "control_advantage",
+    "card_priorities": {
+      "cycle_player": ["fast_cycling", "efficient_defense", "pressure_cards"],
+      "control_player": ["efficient_defense", "counter_cards", "elixir_efficiency"]
+    }
+  },
+  "cycle_vs_defensive": {
+    "difficulty": "medium",
+    "win_rate": 0.60,
+    "key_strategies": {
+      "cycle_player": ["fast_cycling", "pressure_constant", "building_counters"],
+      "defensive_player": ["defend_strong", "building_placement", "counter_push"]
+    },
+    "critical_moments": ["cycle_timing", "building_counter", "counter_push_opportunity"],
+    "elixir_management": "cycle_favored",
+    "positioning": "defensive_advantage",
+    "card_priorities": {
+      "cycle_player": ["fast_cycling", "building_counters", "pressure_cards"],
+      "defensive_player": ["building_defense", "counter_cards", "defensive_efficiency"]
+    }
+  },
+  "control_vs_defensive": {
+    "difficulty": "medium",
+    "win_rate": 0.50,
+    "key_strategies": {
+      "control_player": ["defend_efficiently", "counter_push", "elixir_management"],
+      "defensive_player": ["defend_strong", "counter_push", "building_placement"]
+    },
+    "critical_moments": ["counter_push_timing", "building_counter", "elixir_advantage"],
+    "elixir_management": "control_favored",
+    "positioning": "defensive_advantage",
+    "card_priorities": {
+      "control_player": ["efficient_defense", "counter_cards", "elixir_efficiency"],
+      "defensive_player": ["building_defense", "counter_cards", "defensive_efficiency"]
+    }
+  },
+  "air_heavy_vs_ground_heavy": {
+    "difficulty": "medium",
+    "win_rate": 0.65,
+    "key_strategies": {
+      "air_player": ["air_pressure", "ground_defense", "tower_damage"],
+      "ground_player": ["air_defense", "ground_pressure", "building_placement"]
+    },
+    "critical_moments": ["air_push_timing", "air_defense", "ground_counter"],
+    "elixir_management": "air_favored",
+    "positioning": "air_advantage",
+    "card_priorities": {
+      "air_player": ["air_pressure", "ground_defense", "tower_damage"],
+      "ground_player": ["air_defense", "ground_pressure", "building_placement"]
+    }
+  },
+  "spell_heavy_vs_tank_heavy": {
+    "difficulty": "hard",
+    "win_rate": 0.40,
+    "key_strategies": {
+      "spell_player": ["spell_damage", "efficient_defense", "tower_pressure"],
+      "tank_player": ["tank_pressure", "spell_counters", "building_placement"]
+    },
+    "critical_moments": ["spell_timing", "tank_push", "tower_damage"],
+    "elixir_management": "spell_favored",
+    "positioning": "tank_advantage",
+    "card_priorities": {
+      "spell_player": ["spell_damage", "efficient_defense", "tower_pressure"],
+      "tank_player": ["tank_pressure", "spell_counters", "building_placement"]
+    }
+  },
+  "swarm_heavy_vs_area_damage": {
+    "difficulty": "hard",
+    "win_rate": 0.30,
+    "key_strategies": {
+      "swarm_player": ["swarm_pressure", "avoid_area_damage", "fast_cycling"],
+      "area_player": ["area_damage", "swarm_counters", "efficient_trades"]
+    },
+    "critical_moments": ["swarm_timing", "area_damage", "elixir_advantage"],
+    "elixir_management": "area_favored",
+    "positioning": "area_advantage",
+    "card_priorities": {
+      "swarm_player": ["swarm_pressure", "avoid_area_damage", "fast_cycling"],
+      "area_player": ["area_damage", "swarm_counters", "efficient_trades"]
+    }
+  },
+  "building_heavy_vs_spell_heavy": {
+    "difficulty": "hard",
+    "win_rate": 0.35,
+    "key_strategies": {
+      "building_player": ["building_placement", "spell_counters", "counter_push"],
+      "spell_player": ["spell_damage", "building_counters", "tower_pressure"]
+    },
+    "critical_moments": ["building_timing", "spell_counter", "tower_damage"],
+    "elixir_management": "spell_favored",
+    "positioning": "building_advantage",
+    "card_priorities": {
+      "building_player": ["building_placement", "spell_counters", "counter_push"],
+      "spell_player": ["spell_damage", "building_counters", "tower_pressure"]
+    }
+  },
+  "versatile_vs_specialized": {
+    "difficulty": "medium",
+    "win_rate": 0.50,
+    "key_strategies": {
+      "versatile_player": ["adapt_strategy", "balanced_play", "versatile_response"],
+      "specialized_player": ["specialized_strategy", "exploit_weaknesses", "consistent_play"]
+    },
+    "critical_moments": ["strategy_adaptation", "weakness_exploitation", "consistency"],
+    "elixir_management": "even",
+    "positioning": "versatile_advantage",
+    "card_priorities": {
+      "versatile_player": ["adapt_strategy", "balanced_play", "versatile_response"],
+      "specialized_player": ["specialized_strategy", "exploit_weaknesses", "consistent_play"]
+    }
+  },
+  "general_matchup_rules": {
+    "archetype_advantages": {
+      "beatdown_vs_cycle": "cycle_favored",
+      "beatdown_vs_control": "even",
+      "beatdown_vs_defensive": "beatdown_favored",
+      "cycle_vs_control": "cycle_favored",
+      "cycle_vs_defensive": "cycle_favored",
+      "control_vs_defensive": "even"
+    },
+    "elixir_management": {
+      "low_elixir_decks": "cycle_advantage",
+      "medium_elixir_decks": "balanced",
+      "high_elixir_decks": "beatdown_advantage"
+    },
+    "positioning": {
+      "defensive_decks": "positioning_advantage",
+      "offensive_decks": "pressure_advantage",
+      "versatile_decks": "adaptation_advantage"
+    }
+  }
+}

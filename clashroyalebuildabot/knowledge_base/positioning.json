@@ -1,0 +1,343 @@
+{
+  "tile_analysis": {
+    "defensive_tiles": {
+      "center_defense": {"x": 4, "y": 10, "description": "Centro defensivo para tank troops"},
+      "princess_tower_range": {"x": 3, "y": 11, "description": "Alcance da torre princesa"},
+      "backline_defense": {"x": 2, "y": 12, "description": "Linha de trás para ranged troops"},
+      "building_placement": {"x": 5, "y": 9, "description": "Posicionamento de construções"}
+    },
+    "offensive_tiles": {
+      "bridge_pressure": {"x": 6, "y": 8, "description": "Pressão na ponte"},
+      "enemy_side": {"x": 7, "y": 7, "description": "Lado inimigo"},
+      "tower_targeting": {"x": 8, "y": 6, "description": "Alvo na torre"}
+    },
+    "support_tiles": {
+      "backline_support": {"x": 3, "y": 11, "description": "Suporte na linha de trás"},
+      "behind_tank": {"x": 4, "y": 10, "description": "Atrás do tank"},
+      "flank_position": {"x": 5, "y": 9, "description": "Posição de flanco"}
+    }
+  },
+  "formation_types": {
+    "defensive_wall": {
+      "description": "Tank na frente, suporte atrás",
+      "tiles": ["center_defense", "backline_support"],
+      "cards": ["giant", "knight", "musketeer", "archers"]
+    },
+    "offensive_push": {
+      "description": "Win condition na frente, suporte atrás",
+      "tiles": ["bridge_pressure", "backline_support"],
+      "cards": ["giant", "balloon", "pekka", "support_cards"]
+    },
+    "split_pressure": {
+      "description": "Pressão em duas lanes",
+      "tiles": ["left_lane", "right_lane"],
+      "cards": ["any_win_condition", "support_cards"]
+    }
+  },
+  "cards": {
+    "giant": {
+      "default": {
+        "tile_x": 4,
+        "tile_y": 10,
+        "description": "Centro defensivo para tank",
+        "priority": "high"
+      },
+      "offensive": {
+        "tile_x": 6,
+        "tile_y": 8,
+        "description": "Ponte para pressão",
+        "priority": "high"
+      },
+      "defensive": {
+        "tile_x": 4,
+        "tile_y": 10,
+        "description": "Centro para defesa",
+        "priority": "high"
+      }
+    },
+    "musketeer": {
+      "default": {
+        "tile_x": 3,
+        "tile_y": 11,
+        "description": "Backline para suporte",
+        "priority": "medium"
+      },
+      "defensive": {
+        "tile_x": 3,
+        "tile_y": 11,
+        "description": "Backline defensivo",
+        "priority": "high"
+      },
+      "support": {
+        "tile_x": 4,
+        "tile_y": 10,
+        "description": "Atrás do tank",
+        "priority": "medium"
+      }
+    },
+    "witch": {
+      "default": {
+        "tile_x": 3,
+        "tile_y": 11,
+        "description": "Backline para suporte",
+        "priority": "medium"
+      },
+      "defensive": {
+        "tile_x": 3,
+        "tile_y": 11,
+        "description": "Backline defensivo",
+        "priority": "high"
+      },
+      "support": {
+        "tile_x": 4,
+        "tile_y": 10,
+        "description": "Atrás do tank",
+        "priority": "medium"
+      }
+    },
+    "baby_dragon": {
+      "default": {
+        "tile_x": 4,
+        "tile_y": 10,
+        "description": "Centro para defesa aérea",
+        "priority": "medium"
+      },
+      "offensive": {
+        "tile_x": 6,
+        "tile_y": 8,
+        "description": "Ponte para pressão aérea",
+        "priority": "high"
+      },
+      "defensive": {
+        "tile_x": 4,
+        "tile_y": 10,
+        "description": "Centro para defesa aérea",
+        "priority": "high"
+      }
+    },
+    "knight": {
+      "default": {
+        "tile_x": 4,
+        "tile_y": 10,
+        "description": "Centro para tank",
+        "priority": "medium"
+      },
+      "defensive": {
+        "tile_x": 4,
+        "tile_y": 10,
+        "description": "Centro defensivo",
+        "priority": "high"
+      },
+      "counter": {
+        "tile_x": 5,
+        "tile_y": 9,
+        "description": "Posição de contra",
+        "priority": "medium"
+      }
+    },
+    "archers": {
+      "default": {
+        "tile_x": 3,
+        "tile_y": 11,
+        "description": "Backline para suporte",
+        "priority": "medium"
+      },
+      "defensive": {
+        "tile_x": 3,
+        "tile_y": 11,
+        "description": "Backline defensivo",
+        "priority": "high"
+      },
+      "support": {
+        "tile_x": 4,
+        "tile_y": 10,
+        "description": "Atrás do tank",
+        "priority": "medium"
+      }
+    },
+    "minipekka": {
+      "default": {
+        "tile_x": 4,
+        "tile_y": 10,
+        "description": "Centro para dano",
+        "priority": "medium"
+      },
+      "defensive": {
+        "tile_x": 4,
+        "tile_y": 10,
+        "description": "Centro defensivo",
+        "priority": "high"
+      },
+      "counter": {
+        "tile_x": 5,
+        "tile_y": 9,
+        "description": "Posição de contra",
+        "priority": "medium"
+      }
+    },
+    "minions": {
+      "default": {
+        "tile_x": 4,
+        "tile_y": 10,
+        "description": "Centro para defesa aérea",
+        "priority": "medium"
+      },
+      "offensive": {
+        "tile_x": 6,
+        "tile_y": 8,
+        "description": "Ponte para pressão aérea",
+        "priority": "high"
+      },
+      "defensive": {
+        "tile_x": 4,
+        "tile_y": 10,
+        "description": "Centro para defesa aérea",
+        "priority": "high"
+      }
+    },
+    "bats": {
+      "default": {
+        "tile_x": 4,
+        "tile_y": 10,
+        "description": "Centro para defesa aérea",
+        "priority": "low"
+      },
+      "offensive": {
+        "tile_x": 6,
+        "tile_y": 8,
+        "description": "Ponte para pressão aérea",
+        "priority": "medium"
+      },
+      "defensive": {
+        "tile_x": 4,
+        "tile_y": 10,
+        "description": "Centro para defesa aérea",
+        "priority": "medium"
+      }
+    },
+    "goblin_barrel": {
+      "default": {
+        "tile_x": 8,
+        "tile_y": 6,
+        "description": "Alvo na torre",
+        "priority": "high"
+      },
+      "offensive": {
+        "tile_x": 8,
+        "tile_y": 6,
+        "description": "Alvo na torre",
+        "priority": "high"
+      }
+    },
+    "cannon": {
+      "default": {
+        "tile_x": 5,
+        "tile_y": 9,
+        "description": "Posicionamento defensivo",
+        "priority": "high"
+      },
+      "defensive": {
+        "tile_x": 5,
+        "tile_y": 9,
+        "description": "Posicionamento defensivo",
+        "priority": "high"
+      }
+    },
+    "fireball": {
+      "default": {
+        "tile_x": 6,
+        "tile_y": 8,
+        "description": "Alvo na ponte",
+        "priority": "medium"
+      },
+      "defensive": {
+        "tile_x": 4,
+        "tile_y": 10,
+        "description": "Alvo defensivo",
+        "priority": "high"
+      }
+    },
+    "zap": {
+      "default": {
+        "tile_x": 6,
+        "tile_y": 8,
+        "description": "Alvo na ponte",
+        "priority": "medium"
+      },
+      "defensive": {
+        "tile_x": 4,
+        "tile_y": 10,
+        "description": "Alvo defensivo",
+        "priority": "high"
+      }
+    },
+    "arrows": {
+      "default": {
+        "tile_x": 6,
+        "tile_y": 8,
+        "description": "Alvo na ponte",
+        "priority": "medium"
+      },
+      "defensive": {
+        "tile_x": 4,
+        "tile_y": 10,
+        "description": "Alvo defensivo",
+        "priority": "high"
+      }
+    }
+  },
+  "situations": {
+    "defensive_formation": {
+      "description": "Formação defensiva padrão",
+      "tiles": ["center_defense", "backline_support"],
+      "cards": ["tank_cards", "ranged_cards"]
+    },
+    "offensive_formation": {
+      "description": "Formação ofensiva padrão",
+      "tiles": ["bridge_pressure", "backline_support"],
+      "cards": ["win_conditions", "support_cards"]
+    },
+    "air_defense": {
+      "description": "Defesa contra ataques aéreos",
+      "tiles": ["center_defense", "backline_support"],
+      "cards": ["air_defense_cards", "ranged_cards"]
+    },
+    "building_placement": {
+      "description": "Posicionamento de construções",
+      "tiles": ["building_placement"],
+      "cards": ["building_cards"]
+    },
+    "spell_targeting": {
+      "description": "Alvo para spells",
+      "tiles": ["bridge_pressure", "enemy_side"],
+      "cards": ["spell_cards"]
+    }
+  },
+  "positioning_rules": {
+    "tank_first": {
+      "description": "Tank sempre na frente",
+      "priority": "high",
+      "cards": ["giant", "knight", "pekka"]
+    },
+    "support_behind": {
+      "description": "Suporte sempre atrás",
+      "priority": "high",
+      "cards": ["musketeer", "archers", "witch"]
+    },
+    "air_defense": {
+      "description": "Defesa aérea no centro",
+      "priority": "medium",
+      "cards": ["baby_dragon", "minions", "bats"]
+    },
+    "building_center": {
+      "description": "Construções no centro",
+      "priority": "high",
+      "cards": ["cannon", "tesla", "inferno_tower"]
+    },
+    "spell_bridge": {
+      "description": "Spells na ponte",
+      "priority": "medium",
+      "cards": ["fireball", "zap", "arrows"]
+    }
+  }
+}

@@ -1,0 +1,457 @@
+{
+  "giant": {
+    "hard_counters": ["minipekka", "inferno_tower", "pekka", "inferno_dragon"],
+    "soft_counters": ["knight", "archers", "musketeer", "cannon", "tesla"],
+    "spell_counters": ["fireball", "rocket", "lightning"],
+    "positioning": "center_defense",
+    "elixir_efficiency": "positive_trade",
+    "counter_push_potential": "high",
+    "priority": 9,
+    "notes": "Tank principal, precisa ser defendido no centro com support killers",
+    "advanced_counters": {
+      "minipekka": {
+        "effectiveness": "excellent",
+        "elixir_trade": "+2",
+        "positioning": "center_defense",
+        "timing": "immediate",
+        "counter_push": "strong",
+        "risks": ["support_troops", "spells"],
+        "best_followup": ["archers", "musketeer"]
+      },
+      "inferno_tower": {
+        "effectiveness": "excellent",
+        "elixir_trade": "+1",
+        "positioning": "building_placement",
+        "timing": "preemptive",
+        "counter_push": "none",
+        "risks": ["zap", "lightning"],
+        "best_followup": ["knight", "archers"]
+      },
+      "pekka": {
+        "effectiveness": "excellent",
+        "elixir_trade": "+1",
+        "positioning": "center_defense",
+        "timing": "immediate",
+        "counter_push": "very_strong",
+        "risks": ["support_troops", "swarm"],
+        "best_followup": ["musketeer", "baby_dragon"]
+      },
+      "inferno_dragon": {
+        "effectiveness": "excellent",
+        "elixir_trade": "+1",
+        "positioning": "air_defense",
+        "timing": "immediate",
+        "counter_push": "strong",
+        "risks": ["zap", "lightning"],
+        "best_followup": ["knight", "archers"]
+      }
+    },
+    "chess_strategy": {
+      "defensive_moves": [
+        {
+          "move": "place_minipekka_center",
+          "priority": "highest",
+          "elixir_cost": 4,
+          "effectiveness": 95,
+          "counter_push_potential": "high"
+        },
+        {
+          "move": "place_inferno_tower",
+          "priority": "high",
+          "elixir_cost": 5,
+          "effectiveness": 90,
+          "counter_push_potential": "none"
+        }
+      ],
+      "offensive_followup": [
+        {
+          "move": "support_with_archers",
+          "priority": "medium",
+          "elixir_cost": 3,
+          "effectiveness": 80,
+          "counter_push_potential": "medium"
+        }
+      ],
+      "prediction_moves": [
+        {
+          "move": "save_minipekka_for_giant",
+          "priority": "high",
+          "reasoning": "anticipate_giant_push"
+        }
+      ]
+    }
+  },
+  "musketeer": {
+    "hard_counters": ["fireball", "lightning", "rocket"],
+    "soft_counters": ["knight", "archers", "minipekka"],
+    "air_counters": ["minions", "baby_dragon", "inferno_dragon"],
+    "positioning": "backline_support",
+    "elixir_efficiency": "neutral",
+    "counter_push_potential": "medium",
+    "priority": 7,
+    "notes": "Dano aéreo importante, priorizar spells para eliminar",
+    "advanced_counters": {
+      "fireball": {
+        "effectiveness": "excellent",
+        "elixir_trade": "+1",
+        "positioning": "spell_usage",
+        "timing": "immediate",
+        "counter_push": "none",
+        "risks": ["miss_timing", "waste_elixir"],
+        "best_followup": ["knight", "archers"]
+      },
+      "knight": {
+        "effectiveness": "good",
+        "elixir_trade": "0",
+        "positioning": "frontline_defense",
+        "timing": "immediate",
+        "counter_push": "medium",
+        "risks": ["support_troops", "tower_damage"],
+        "best_followup": ["archers", "musketeer"]
+      },
+      "minions": {
+        "effectiveness": "excellent",
+        "elixir_trade": "+1",
+        "positioning": "air_defense",
+        "timing": "immediate",
+        "counter_push": "strong",
+        "risks": ["zap", "arrows"],
+        "best_followup": ["knight", "archers"]
+      }
+    },
+    "chess_strategy": {
+      "defensive_moves": [
+        {
+          "move": "spell_elimination",
+          "priority": "highest",
+          "elixir_cost": 4,
+          "effectiveness": 95,
+          "counter_push_potential": "none"
+        },
+        {
+          "move": "knight_defense",
+          "priority": "high",
+          "elixir_cost": 3,
+          "effectiveness": 80,
+          "counter_push_potential": "medium"
+        }
+      ],
+      "offensive_followup": [
+        {
+          "move": "support_with_archers",
+          "priority": "medium",
+          "elixir_cost": 3,
+          "effectiveness": 75,
+          "counter_push_potential": "medium"
+        }
+      ],
+      "prediction_moves": [
+        {
+          "move": "save_fireball_for_musketeer",
+          "priority": "high",
+          "reasoning": "anticipate_musketeer_play"
+        }
+      ]
+    }
+  },
+  "witch": {
+    "hard_counters": ["fireball", "lightning", "valkyrie"],
+    "soft_counters": ["knight", "musketeer", "archers"],
+    "spell_counters": ["poison", "earthquake"],
+    "positioning": "backline_support",
+    "elixir_efficiency": "neutral",
+    "counter_push_potential": "high",
+    "priority": 8,
+    "notes": "Suporte forte, eliminar com spells ou valkyrie"
+  },
+  "baby_dragon": {
+    "hard_counters": ["musketeer", "archers", "minions"],
+    "soft_counters": ["fireball", "zap"],
+    "air_counters": ["inferno_dragon", "minion_horde"],
+    "positioning": "air_defense",
+    "elixir_efficiency": "neutral",
+    "counter_push_potential": "medium",
+    "priority": 6,
+    "notes": "Unidade aérea, usar ranged troops ou air counters"
+  },
+  "knight": {
+    "hard_counters": ["archers", "musketeer", "minipekka"],
+    "soft_counters": ["fireball", "zap"],
+    "spell_counters": ["poison", "earthquake"],
+    "positioning": "frontline_tank",
+    "elixir_efficiency": "neutral",
+    "counter_push_potential": "low",
+    "priority": 5,
+    "notes": "Tank barato, usar ranged troops para eliminar"
+  },
+  "archers": {
+    "hard_counters": ["fireball", "zap", "arrows"],
+    "soft_counters": ["knight", "minipekka"],
+    "spell_counters": ["poison", "earthquake"],
+    "positioning": "backline_support",
+    "elixir_efficiency": "neutral",
+    "counter_push_potential": "low",
+    "priority": 4,
+    "notes": "Ranged troops frágeis, eliminar com spells"
+  },
+  "minipekka": {
+    "hard_counters": ["knight", "archers", "minions"],
+    "soft_counters": ["fireball", "zap"],
+    "spell_counters": ["poison", "earthquake"],
+    "positioning": "frontline_damage",
+    "elixir_efficiency": "neutral",
+    "counter_push_potential": "high",
+    "priority": 7,
+    "notes": "Dano alto, usar swarm troops ou spells"
+  },
+  "minions": {
+    "hard_counters": ["zap", "arrows", "fireball"],
+    "soft_counters": ["archers", "musketeer"],
+    "air_counters": ["baby_dragon", "inferno_dragon"],
+    "positioning": "air_swarm",
+    "elixir_efficiency": "positive_trade",
+    "counter_push_potential": "medium",
+    "priority": 6,
+    "notes": "Swarm aéreo, eliminar com spells ou ranged troops"
+  },
+  "bats": {
+    "hard_counters": ["zap", "arrows"],
+    "soft_counters": ["archers", "musketeer"],
+    "air_counters": ["baby_dragon", "minions"],
+    "positioning": "air_swarm",
+    "elixir_efficiency": "positive_trade",
+    "counter_push_potential": "low",
+    "priority": 3,
+    "notes": "Swarm aéreo barato, eliminar com spells"
+  },
+  "goblin_barrel": {
+    "hard_counters": ["zap", "arrows", "log"],
+    "soft_counters": ["archers", "musketeer"],
+    "spell_counters": ["fireball", "poison"],
+    "positioning": "princess_tower",
+    "elixir_efficiency": "positive_trade",
+    "counter_push_potential": "low",
+    "priority": 8,
+    "notes": "Spell de dano direto, usar spells para eliminar"
+  },
+  "cannon": {
+    "hard_counters": ["giant", "knight", "minipekka"],
+    "soft_counters": ["fireball", "zap"],
+    "spell_counters": ["earthquake", "lightning"],
+    "positioning": "defensive_building",
+    "elixir_efficiency": "positive_trade",
+    "counter_push_potential": "none",
+    "priority": 6,
+    "notes": "Construção defensiva, usar spells ou tank troops"
+  },
+  "fireball": {
+    "hard_counters": ["avoid_swarm", "position_spread"],
+    "soft_counters": ["heal", "heal_spirit"],
+    "spell_counters": ["mirror"],
+    "positioning": "spell_usage",
+    "elixir_efficiency": "neutral",
+    "counter_push_potential": "none",
+    "priority": 7,
+    "notes": "Spell de área, espalhar tropas para minimizar dano"
+  },
+  "zap": {
+    "hard_counters": ["avoid_swarm", "position_spread"],
+    "soft_counters": ["heal", "heal_spirit"],
+    "spell_counters": ["mirror"],
+    "positioning": "spell_usage",
+    "elixir_efficiency": "neutral",
+    "counter_push_potential": "none",
+    "priority": 6,
+    "notes": "Spell rápido, espalhar tropas para minimizar dano"
+  },
+  "arrows": {
+    "hard_counters": ["avoid_swarm", "position_spread"],
+    "soft_counters": ["heal", "heal_spirit"],
+    "spell_counters": ["mirror"],
+    "positioning": "spell_usage",
+    "elixir_efficiency": "neutral",
+    "counter_push_potential": "none",
+    "priority": 5,
+    "notes": "Spell de área, espalhar tropas para minimizar dano"
+  },
+  "hog_rider": {
+    "hard_counters": ["cannon", "tesla", "minipekka"],
+    "soft_counters": ["knight", "archers", "musketeer"],
+    "spell_counters": ["fireball", "zap"],
+    "positioning": "defensive_building",
+    "elixir_efficiency": "positive_trade",
+    "counter_push_potential": "medium",
+    "priority": 8,
+    "notes": "Win condition terrestre, usar buildings ou tank troops"
+  },
+  "balloon": {
+    "hard_counters": ["musketeer", "archers", "minions"],
+    "soft_counters": ["fireball", "zap"],
+    "air_counters": ["baby_dragon", "inferno_dragon"],
+    "positioning": "air_defense",
+    "elixir_efficiency": "neutral",
+    "counter_push_potential": "high",
+    "priority": 9,
+    "notes": "Win condition aérea, usar ranged troops ou air counters"
+  },
+  "pekka": {
+    "hard_counters": ["swarm_troops", "minions", "bats"],
+    "soft_counters": ["knight", "archers"],
+    "spell_counters": ["fireball", "lightning"],
+    "positioning": "swarm_defense",
+    "elixir_efficiency": "positive_trade",
+    "counter_push_potential": "high",
+    "priority": 9,
+    "notes": "Tank pesado, usar swarm troops para eliminar"
+  },
+  "valkyrie": {
+    "hard_counters": ["archers", "musketeer", "minions"],
+    "soft_counters": ["knight", "minipekka"],
+    "spell_counters": ["fireball", "lightning"],
+    "positioning": "area_control",
+    "elixir_efficiency": "neutral",
+    "counter_push_potential": "medium",
+    "priority": 6,
+    "notes": "Controle de área, usar tank troops ou spells"
+  },
+  "wizard": {
+    "hard_counters": ["fireball", "lightning", "knight"],
+    "soft_counters": ["archers", "musketeer"],
+    "spell_counters": ["poison", "earthquake"],
+    "positioning": "backline_support",
+    "elixir_efficiency": "neutral",
+    "counter_push_potential": "medium",
+    "priority": 7,
+    "notes": "Suporte de área, eliminar com spells ou tank troops"
+  },
+  "inferno_tower": {
+    "hard_counters": ["zap", "lightning", "minions"],
+    "soft_counters": ["fireball", "earthquake"],
+    "spell_counters": ["freeze", "rage"],
+    "positioning": "defensive_building",
+    "elixir_efficiency": "positive_trade",
+    "counter_push_potential": "none",
+    "priority": 8,
+    "notes": "Construção defensiva forte, usar spells para resetar"
+  },
+  "tesla": {
+    "hard_counters": ["fireball", "lightning", "earthquake"],
+    "soft_counters": ["zap", "poison"],
+    "spell_counters": ["freeze", "rage"],
+    "positioning": "defensive_building",
+    "elixir_efficiency": "positive_trade",
+    "counter_push_potential": "none",
+    "priority": 7,
+    "notes": "Construção defensiva, usar spells para eliminar"
+  },
+  "bomb_tower": {
+    "hard_counters": ["fireball", "lightning", "earthquake"],
+    "soft_counters": ["zap", "poison"],
+    "spell_counters": ["freeze", "rage"],
+    "positioning": "defensive_building",
+    "elixir_efficiency": "positive_trade",
+    "counter_push_potential": "none",
+    "priority": 6,
+    "notes": "Construção defensiva de área, usar spells para eliminar"
+  },
+  "elixir_collector": {
+    "hard_counters": ["fireball", "lightning", "rocket"],
+    "soft_counters": ["minions", "bats"],
+    "spell_counters": ["poison", "earthquake"],
+    "positioning": "spell_target",
+    "elixir_efficiency": "positive_trade",
+    "counter_push_potential": "none",
+    "priority": 8,
+    "notes": "Construção de elixir, priorizar eliminação com spells"
+  },
+  "freeze": {
+    "hard_counters": ["avoid_clumping", "position_spread"],
+    "soft_counters": ["heal", "heal_spirit"],
+    "spell_counters": ["mirror"],
+    "positioning": "spell_usage",
+    "elixir_efficiency": "neutral",
+    "counter_push_potential": "none",
+    "priority": 8,
+    "notes": "Spell de controle, espalhar tropas para minimizar efeito"
+  },
+  "poison": {
+    "hard_counters": ["avoid_swarm", "position_spread"],
+    "soft_counters": ["heal", "heal_spirit"],
+    "spell_counters": ["mirror"],
+    "positioning": "spell_usage",
+    "elixir_efficiency": "neutral",
+    "counter_push_potential": "none",
+    "priority": 7,
+    "notes": "Spell de área duradouro, espalhar tropas para minimizar dano"
+  },
+  "lightning": {
+    "hard_counters": ["avoid_clumping", "position_spread"],
+    "soft_counters": ["heal", "heal_spirit"],
+    "spell_counters": ["mirror"],
+    "positioning": "spell_usage",
+    "elixir_efficiency": "neutral",
+    "counter_push_potential": "none",
+    "priority": 8,
+    "notes": "Spell de área forte, espalhar tropas para minimizar dano"
+  },
+  "rocket": {
+    "hard_counters": ["avoid_clumping", "position_spread"],
+    "soft_counters": ["heal", "heal_spirit"],
+    "spell_counters": ["mirror"],
+    "positioning": "spell_usage",
+    "elixir_efficiency": "neutral",
+    "counter_push_potential": "none",
+    "priority": 7,
+    "notes": "Spell de dano direto, espalhar tropas para minimizar dano"
+  },
+  "log": {
+    "hard_counters": ["avoid_ground_swarm", "position_air"],
+    "soft_counters": ["heal", "heal_spirit"],
+    "spell_counters": ["mirror"],
+    "positioning": "spell_usage",
+    "elixir_efficiency": "neutral",
+    "counter_push_potential": "none",
+    "priority": 6,
+    "notes": "Spell terrestre, usar tropas aéreas para evitar"
+  },
+  "earthquake": {
+    "hard_counters": ["avoid_buildings", "position_air"],
+    "soft_counters": ["heal", "heal_spirit"],
+    "spell_counters": ["mirror"],
+    "positioning": "spell_usage",
+    "elixir_efficiency": "neutral",
+    "counter_push_potential": "none",
+    "priority": 6,
+    "notes": "Spell anti-building, usar tropas aéreas para evitar"
+  },
+  "rage": {
+    "hard_counters": ["avoid_clumping", "position_spread"],
+    "soft_counters": ["freeze", "poison"],
+    "spell_counters": ["mirror"],
+    "positioning": "spell_usage",
+    "elixir_efficiency": "neutral",
+    "counter_push_potential": "none",
+    "priority": 5,
+    "notes": "Spell de buff, espalhar tropas para minimizar efeito"
+  },
+  "heal": {
+    "hard_counters": ["fireball", "poison", "lightning"],
+    "soft_counters": ["zap", "arrows"],
+    "spell_counters": ["mirror"],
+    "positioning": "spell_usage",
+    "elixir_efficiency": "neutral",
+    "counter_push_potential": "none",
+    "priority": 4,
+    "notes": "Spell de cura, usar spells para eliminar tropas curadas"
+  },
+  "mirror": {
+    "hard_counters": ["adapt_strategy", "counter_play"],
+    "soft_counters": ["same_counters"],
+    "spell_counters": ["same_counters"],
+    "positioning": "adaptive",
+    "elixir_efficiency": "neutral",
+    "counter_push_potential": "variable",
+    "priority": 5,
+    "notes": "Spell de cópia, adaptar estratégia baseado na carta copiada"
+  }
+}

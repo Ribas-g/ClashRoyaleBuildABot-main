@@ -1,0 +1,219 @@
+{
+  "opening_hands": {
+    "elixir_1-3": {
+      "strategies": ["defensive_placement", "cycle_cheap_cards", "wait_for_advantage"],
+      "priorities": ["defense", "elixir_building", "information_gathering"],
+      "risks": ["enemy_push", "tower_damage", "elixir_disadvantage"],
+      "recommended_actions": ["play_cheapest_card", "defend_center", "build_elixir"],
+      "chess_moves": [
+        {
+          "move": "defensive_cycle",
+          "description": "Jogar carta mais barata para ciclar e ganhar informação",
+          "priority": "highest",
+          "elixir_cost": 1,
+          "expected_outcome": "information_gain"
+        },
+        {
+          "move": "center_defense",
+          "description": "Posicionar defesa no centro para controlar o campo",
+          "priority": "high",
+          "elixir_cost": 2,
+          "expected_outcome": "field_control"
+        }
+      ]
+    },
+    "elixir_4-6": {
+      "strategies": ["build_push", "counter_attack", "defensive_cycling"],
+      "priorities": ["efficiency", "positioning", "counter_push_potential"],
+      "risks": ["overcommit", "bad_trades", "enemy_counter"],
+      "recommended_actions": ["defend_efficiently", "build_counter_push", "control_elixir"]
+    },
+    "elixir_7-10": {
+      "strategies": ["full_commit", "double_lane_pressure", "win_condition_push"],
+      "priorities": ["damage", "pressure", "tower_taking"],
+      "risks": ["counter_push", "elixir_dry", "enemy_advantage"],
+      "recommended_actions": ["commit_win_condition", "apply_pressure", "support_push"]
+    }
+  },
+  "defensive_situations": {
+    "enemy_giant_push": {
+      "strategies": ["center_defense", "support_killers", "building_placement"],
+      "priorities": ["defend_giant", "kill_support", "counter_push"],
+      "counters": ["minipekka", "inferno_tower", "knight"],
+      "positioning": "center_defense",
+      "elixir_management": "defensive_efficiency"
+    },
+    "enemy_cycle_deck": {
+      "strategies": ["elixir_management", "defensive_cycling", "counter_pressure"],
+      "priorities": ["defend_efficiently", "control_elixir", "apply_pressure"],
+      "counters": ["cheap_defense", "efficient_trades", "counter_push"],
+      "positioning": "defensive_formation",
+      "elixir_management": "efficiency_focus"
+    },
+    "enemy_air_heavy": {
+      "strategies": ["air_defense_priority", "ground_counter_push", "building_placement"],
+      "priorities": ["defend_air", "ground_pressure", "tower_protection"],
+      "counters": ["musketeer", "archers", "air_defense"],
+      "positioning": "air_defense",
+      "elixir_management": "defensive_priority"
+    },
+    "enemy_spell_heavy": {
+      "strategies": ["avoid_clumping", "position_spread", "counter_spell"],
+      "priorities": ["spread_units", "avoid_spells", "counter_pressure"],
+      "counters": ["spread_formation", "heal_spells", "counter_spells"],
+      "positioning": "spread_formation",
+      "elixir_management": "spell_efficiency"
+    },
+    "enemy_swarm_heavy": {
+      "strategies": ["area_damage", "spell_usage", "tank_defense"],
+      "priorities": ["area_control", "spell_efficiency", "tank_protection"],
+      "counters": ["fireball", "zap", "area_damage"],
+      "positioning": "area_control",
+      "elixir_management": "spell_efficiency"
+    },
+    "general": {
+      "strategies": ["defend_efficiently", "counter_push", "elixir_management"],
+      "priorities": ["defense", "efficiency", "counter_potential"],
+      "counters": ["appropriate_counters", "efficient_trades"],
+      "positioning": "defensive_formation",
+      "elixir_management": "defensive_efficiency"
+    }
+  },
+  "offensive_situations": {
+    "advantage_state": {
+      "strategies": ["pressure_main_lane", "support_win_condition", "maintain_advantage"],
+      "priorities": ["damage", "pressure", "advantage_maintenance"],
+      "counters": ["win_condition", "support_cards", "pressure_cards"],
+      "positioning": "offensive_formation",
+      "elixir_management": "pressure_focus"
+    },
+    "disadvantage_state": {
+      "strategies": ["defensive_cycling", "wait_for_counter", "elixir_recovery"],
+      "priorities": ["defense", "elixir_recovery", "counter_opportunity"],
+      "counters": ["defensive_cards", "cheap_cycling", "counter_cards"],
+      "positioning": "defensive_formation",
+      "elixir_management": "recovery_focus"
+    },
+    "even_state": {
+      "strategies": ["elixir_efficiency", "positioning_advantage", "information_gathering"],
+      "priorities": ["efficiency", "positioning", "information"],
+      "counters": ["efficient_cards", "positioning_cards", "information_cards"],
+      "positioning": "balanced_formation",
+      "elixir_management": "efficiency_focus"
+    },
+    "double_elixir": {
+      "strategies": ["aggressive_pressure", "win_condition_commit", "spell_damage"],
+      "priorities": ["damage", "pressure", "tower_taking"],
+      "counters": ["win_conditions", "spells", "pressure_cards"],
+      "positioning": "offensive_formation",
+      "elixir_management": "aggressive_focus"
+    }
+  },
+  "specific_counters": {
+    "giant_counter": {
+      "strategies": ["center_defense", "support_killers", "building_placement"],
+      "counters": ["minipekka", "inferno_tower", "knight"],
+      "positioning": "center_defense",
+      "elixir_efficiency": "positive_trade"
+    },
+    "musketeer_counter": {
+      "strategies": ["spell_elimination", "tank_defense", "air_counter"],
+      "counters": ["fireball", "knight", "minions"],
+      "positioning": "backline_attack",
+      "elixir_efficiency": "neutral_trade"
+    },
+    "witch_counter": {
+      "strategies": ["spell_elimination", "valkyrie_defense", "area_control"],
+      "counters": ["fireball", "valkyrie", "knight"],
+      "positioning": "backline_attack",
+      "elixir_efficiency": "neutral_trade"
+    },
+    "baby_dragon_counter": {
+      "strategies": ["ranged_defense", "air_counter", "spell_usage"],
+      "counters": ["musketeer", "archers", "fireball"],
+      "positioning": "air_defense",
+      "elixir_efficiency": "neutral_trade"
+    },
+    "knight_counter": {
+      "strategies": ["ranged_defense", "spell_usage", "tank_defense"],
+      "counters": ["archers", "musketeer", "fireball"],
+      "positioning": "frontline_defense",
+      "elixir_efficiency": "neutral_trade"
+    },
+    "archers_counter": {
+      "strategies": ["spell_elimination", "tank_defense", "area_damage"],
+      "counters": ["fireball", "knight", "zap"],
+      "positioning": "backline_attack",
+      "elixir_efficiency": "positive_trade"
+    },
+    "minipekka_counter": {
+      "strategies": ["swarm_defense", "spell_usage", "tank_defense"],
+      "counters": ["knight", "archers", "minions"],
+      "positioning": "frontline_defense",
+      "elixir_efficiency": "neutral_trade"
+    },
+    "minions_counter": {
+      "strategies": ["spell_elimination", "ranged_defense", "air_counter"],
+      "counters": ["zap", "archers", "fireball"],
+      "positioning": "air_defense",
+      "elixir_efficiency": "positive_trade"
+    },
+    "bats_counter": {
+      "strategies": ["spell_elimination", "ranged_defense", "air_counter"],
+      "counters": ["zap", "archers", "arrows"],
+      "positioning": "air_defense",
+      "elixir_efficiency": "positive_trade"
+    },
+    "goblin_barrel_counter": {
+      "strategies": ["spell_elimination", "ranged_defense", "tower_protection"],
+      "counters": ["zap", "archers", "log"],
+      "positioning": "tower_defense",
+      "elixir_efficiency": "positive_trade"
+    },
+    "cannon_counter": {
+      "strategies": ["spell_elimination", "tank_defense", "building_targeting"],
+      "counters": ["giant", "fireball", "knight"],
+      "positioning": "building_attack",
+      "elixir_efficiency": "positive_trade"
+    }
+  },
+  "game_phases": {
+    "early_game": {
+      "strategies": ["information_gathering", "defensive_cycling", "elixir_building"],
+      "priorities": ["defense", "information", "elixir_efficiency"],
+      "risks": ["early_pressure", "information_loss", "elixir_disadvantage"]
+    },
+    "mid_game": {
+      "strategies": ["counter_pushing", "elixir_management", "positioning_advantage"],
+      "priorities": ["efficiency", "positioning", "counter_potential"],
+      "risks": ["overcommit", "bad_trades", "positioning_loss"]
+    },
+    "late_game": {
+      "strategies": ["win_condition_commit", "spell_damage", "tower_pressure"],
+      "priorities": ["damage", "pressure", "tower_taking"],
+      "risks": ["counter_push", "elixir_dry", "time_pressure"]
+    },
+    "double_elixir": {
+      "strategies": ["aggressive_pressure", "spell_damage", "win_condition_commit"],
+      "priorities": ["damage", "pressure", "tower_taking"],
+      "risks": ["counter_push", "elixir_dry", "enemy_advantage"]
+    }
+  },
+  "elixir_management": {
+    "low_elixir": {
+      "strategies": ["defensive_cycling", "elixir_building", "wait_for_advantage"],
+      "priorities": ["defense", "elixir_recovery", "efficiency"],
+      "risks": ["enemy_push", "tower_damage", "elixir_disadvantage"]
+    },
+    "medium_elixir": {
+      "strategies": ["efficient_trades", "counter_pushing", "positioning_advantage"],
+      "priorities": ["efficiency", "positioning", "counter_potential"],
+      "risks": ["overcommit", "bad_trades", "positioning_loss"]
+    },
+    "high_elixir": {
+      "strategies": ["win_condition_commit", "pressure_application", "tower_damage"],
+      "priorities": ["damage", "pressure", "tower_taking"],
+      "risks": ["counter_push", "elixir_dry", "enemy_advantage"]
+    }
+  }
+}
