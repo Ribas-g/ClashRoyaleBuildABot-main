@@ -10,22 +10,24 @@ from .knight_action import KnightAction
 from .minions_action import MinionsAction
 from .minipekka_action import MinipekkaAction
 from .musketeer_action import MusketeerAction
+from .spear_goblins_action import SpearGoblinsAction
 from .witch_action import WitchAction
 from .zap_action import ZapAction
 
 __all__ = [
     "ArchersAction",
     "ArrowsAction",
+    "BabyDragonAction",
     "BatsAction",
     "CannonAction",
     "FireballAction",
     "GiantAction",
     "GoblinBarrelAction",
-    "BabyDragonAction",
     "KnightAction",
     "MinionsAction",
     "MinipekkaAction",
     "MusketeerAction",
+    "SpearGoblinsAction",
     "WitchAction",
     "ZapAction",
 ]

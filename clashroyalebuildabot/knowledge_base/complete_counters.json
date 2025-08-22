@@ -1,0 +1,140 @@
+{
+  "card_counters": {
+    "giant": {
+      "hard_counters": ["minipekka", "pekka", "inferno_tower", "inferno_dragon"],
+      "soft_counters": ["knight", "barbarians", "skeleton_army"],
+      "spell_counters": [],
+      "strategy": "Use high DPS single target units or swarm to distract"
+    },
+    "musketeer": {
+      "hard_counters": ["fireball", "lightning", "rocket"],
+      "soft_counters": ["knight", "baby_dragon", "minions"],
+      "spell_counters": ["fireball", "lightning"],
+      "strategy": "Use spells or flying units to eliminate"
+    },
+    "archers": {
+      "hard_counters": ["fireball", "arrows", "poison"],
+      "soft_counters": ["knight", "baby_dragon", "minions"],
+      "spell_counters": ["fireball", "arrows", "poison"],
+      "strategy": "Area damage spells or flying units"
+    },
+    "knight": {
+      "hard_counters": ["minipekka", "pekka"],
+      "soft_counters": ["skeleton_army", "barbarians", "minions"],
+      "spell_counters": [],
+      "strategy": "High DPS units or swarm to overwhelm"
+    },
+    "minipekka": {
+      "hard_counters": ["skeleton_army", "barbarians", "minions"],
+      "soft_counters": ["knight", "archers", "spear_goblins"],
+      "spell_counters": [],
+      "strategy": "Swarm units to distract or cheap units to kite"
+    },
+    "minions": {
+      "hard_counters": ["arrows", "fireball", "zap"],
+      "soft_counters": ["archers", "musketeer", "baby_dragon"],
+      "spell_counters": ["arrows", "fireball", "zap"],
+      "strategy": "Anti-air units or area damage spells"
+    },
+    "fireball": {
+      "hard_counters": [],
+      "soft_counters": [],
+      "spell_counters": [],
+      "strategy": "Cannot be countered - avoid grouping units"
+    },
+    "spear_goblins": {
+      "hard_counters": ["arrows", "zap", "fireball"],
+      "soft_counters": ["knight", "baby_dragon"],
+      "spell_counters": ["arrows", "zap"],
+      "strategy": "Any area damage or single unit"
+    },
+    "baby_dragon": {
+      "hard_counters": ["musketeer", "archers", "inferno_dragon"],
+      "soft_counters": ["minions", "bats"],
+      "spell_counters": [],
+      "strategy": "High DPS air targeting units"
+    },
+    "wizard": {
+      "hard_counters": ["fireball", "lightning", "knight"],
+      "soft_counters": ["baby_dragon", "minions"],
+      "spell_counters": ["fireball", "lightning"],
+      "strategy": "Spells or fast units to reach quickly"
+    },
+    "witch": {
+      "hard_counters": ["fireball", "lightning", "knight"],
+      "soft_counters": ["baby_dragon", "minions"],
+      "spell_counters": ["fireball", "lightning"],
+      "strategy": "Spells or units that can reach her quickly"
+    },
+    "pekka": {
+      "hard_counters": ["skeleton_army", "barbarians", "minion_horde"],
+      "soft_counters": ["minions", "bats", "knight"],
+      "spell_counters": [],
+      "strategy": "Swarm units to distract or air units"
+    },
+    "balloon": {
+      "hard_counters": ["musketeer", "archers", "inferno_dragon"],
+      "soft_counters": ["minions", "bats"],
+      "spell_counters": [],
+      "strategy": "High DPS air targeting units immediately"
+    },
+    "skeleton_army": {
+      "hard_counters": ["arrows", "fireball", "zap"],
+      "soft_counters": ["baby_dragon", "wizard"],
+      "spell_counters": ["arrows", "fireball", "zap"],
+      "strategy": "Any area damage spell or splash damage unit"
+    },
+    "barbarians": {
+      "hard_counters": ["fireball", "arrows", "poison"],
+      "soft_counters": ["baby_dragon", "wizard", "witch"],
+      "spell_counters": ["fireball", "arrows"],
+      "strategy": "Area damage spells or splash units"
+    },
+    "hog_rider": {
+      "hard_counters": ["cannon", "tesla", "inferno_tower"],
+      "soft_counters": ["knight", "archers", "skeleton_army"],
+      "spell_counters": [],
+      "strategy": "Buildings to distract or high DPS units"
+    },
+    "golem": {
+      "hard_counters": ["inferno_tower", "inferno_dragon", "minipekka"],
+      "soft_counters": ["barbarians", "skeleton_army"],
+      "spell_counters": [],
+      "strategy": "High DPS single target or inferno units"
+    }
+  },
+  "counter_effectiveness": {
+    "hard_counter": {
+      "elixir_efficiency": "positive",
+      "success_rate": 0.9,
+      "description": "Almost always wins the matchup"
+    },
+    "soft_counter": {
+      "elixir_efficiency": "neutral",
+      "success_rate": 0.7,
+      "description": "Usually wins with proper positioning"
+    },
+    "spell_counter": {
+      "elixir_efficiency": "varies",
+      "success_rate": 0.95,
+      "description": "Instant elimination but costs elixir"
+    }
+  },
+  "situational_adaptations": {
+    "emergency_defense": {
+      "use_any_available": true,
+      "prioritize": ["hard_counters", "cheap_units"],
+      "description": "In emergency, any unit can defend"
+    },
+    "elixir_advantage": {
+      "use_expensive_counters": true,
+      "prioritize": ["hard_counters", "spell_counters"],
+      "description": "Can afford expensive but effective counters"
+    },
+    "low_elixir": {
+      "use_cheap_counters": true,
+      "prioritize": ["soft_counters", "cheap_units"],
+      "description": "Use cheap alternatives"
+    }
+  }
+}

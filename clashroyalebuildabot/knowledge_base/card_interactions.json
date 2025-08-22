@@ -1,0 +1,172 @@
+{
+  "melee_vs_ranged_rules": {
+    "description": "Regras fundamentais de interação entre tropas melee e ranged",
+    "basic_rules": {
+      "melee_advantage": "Tropas melee ganham se conseguirem chegar perto",
+      "ranged_advantage": "Tropas ranged ganham se mantiverem distância",
+      "positioning_critical": "Posicionamento determina o resultado da luta"
+    },
+    "interactions": {
+      "minipekka_vs_musketeer": {
+        "winner": "depends_on_positioning",
+        "scenarios": {
+          "musketeer_placed_on_minipekka": {
+            "result": "minipekka_wins",
+            "reason": "Mini Pekka one-shots Musketeer in melee range",
+            "damage": "musketeer_dies_instantly"
+          },
+          "musketeer_placed_at_distance": {
+            "result": "musketeer_wins", 
+            "reason": "Musketeer can kite and kill Mini Pekka from distance",
+            "positioning": "3+ tiles away from Mini Pekka"
+          }
+        },
+        "correct_counter": "Place Musketeer 3+ tiles away from Mini Pekka, never on top"
+      },
+      "knight_vs_archers": {
+        "winner": "depends_on_positioning",
+        "scenarios": {
+          "archers_placed_on_knight": {
+            "result": "knight_wins",
+            "reason": "Knight has splash damage and more HP"
+          },
+          "archers_placed_at_distance": {
+            "result": "archers_win",
+            "reason": "Archers can kite Knight and deal damage safely"
+          }
+        }
+      },
+      "giant_vs_minipekka": {
+        "winner": "minipekka_wins",
+        "reason": "Mini Pekka is designed to counter tanks",
+        "positioning": "Place Mini Pekka directly on Giant's path"
+      }
+    }
+  },
+  "spell_usage_rules": {
+    "fireball": {
+      "never_use_for": ["cycling", "single_low_value_target", "our_own_towers"],
+      "correct_uses": [
+        "grouped_enemies_4plus_elixir_value",
+        "tower_damage_when_low_hp",
+        "eliminating_key_support_troops",
+        "defending_against_swarm_plus_support"
+      ],
+      "minimum_value_threshold": 4,
+      "positioning_rules": {
+        "vs_grouped_troops": "Center of group for maximum damage",
+        "vs_tower_damage": "Direct on tower when low HP",
+        "vs_support_behind_tank": "Target support, not tank"
+      }
+    },
+    "zap": {
+      "correct_uses": [
+        "reset_inferno_tower",
+        "finish_low_hp_troops",
+        "stun_swarm_units",
+        "reset_sparky"
+      ],
+      "never_use_for": ["high_hp_single_targets", "cycling"]
+    }
+  },
+  "positioning_fundamentals": {
+    "melee_troops": {
+      "vs_ranged": "Get close quickly or use cover",
+      "vs_melee": "Direct confrontation usually fine",
+      "vs_swarm": "Use splash damage positioning"
+    },
+    "ranged_troops": {
+      "vs_melee": "Maintain distance, use kiting",
+      "vs_ranged": "Positioning for range advantage",
+      "vs_air": "Prioritize air threats"
+    },
+    "air_troops": {
+      "advantages": ["ignore_ground_targeting", "bypass_tanks"],
+      "weaknesses": ["vulnerable_to_air_defense", "spells"]
+    }
+  },
+  "professional_tactics": {
+    "kiting": {
+      "definition": "Usar tropas para atrair inimigos longe do objetivo",
+      "examples": {
+        "musketeer_kiting_giant": {
+          "method": "Place Musketeer 4+ tiles away from Giant",
+          "outcome": "Giant follows Musketeer, moves away from tower"
+        },
+        "archers_kiting_pekka": {
+          "method": "Place Archers at distance, let PEKKA chase",
+          "outcome": "PEKKA wastes time chasing, takes damage"
+        }
+      }
+    },
+    "support_positioning": {
+      "behind_tank": {
+        "rule": "Support troops always behind tank",
+        "distance": "2-3 tiles behind for safety",
+        "timing": "After tank crosses bridge"
+      },
+      "flanking": {
+        "rule": "Attack from different angle than main threat",
+        "purpose": "Divide enemy attention and defenses"
+      }
+    },
+    "elixir_management": {
+      "never_cycle_expensive": {
+        "cards": ["fireball", "giant", "pekka", "lightning"],
+        "reason": "Too valuable to waste on cycling"
+      },
+      "cycle_cards": {
+        "cards": ["spear_goblins", "skeletons", "ice_spirit"],
+        "cost": "1-2 elixir maximum"
+      }
+    }
+  },
+  "counter_matrix_professional": {
+    "mini_pekka": {
+      "strong_against": ["giant", "pekka", "golem", "royal_giant"],
+      "weak_against": ["skeleton_army", "barbarians", "minion_horde"],
+      "positioning": "Direct on tank's path",
+      "never_place": "against_swarm_units"
+    },
+    "musketeer": {
+      "strong_against": ["baby_dragon", "minions", "balloon"],
+      "weak_against": ["fireball", "lightning", "mini_pekka_in_melee"],
+      "positioning": "3+ tiles from melee threats",
+      "never_place": "on_top_of_melee_units"
+    },
+    "knight": {
+      "strong_against": ["musketeer", "archers", "wizard"],
+      "weak_against": ["mini_pekka", "swarm_units"],
+      "positioning": "Direct engagement with ranged",
+      "purpose": "Tank damage and eliminate ranged"
+    },
+    "archers": {
+      "strong_against": ["baby_dragon", "minions", "single_targets_at_distance"],
+      "weak_against": ["fireball", "arrows", "knight_in_melee"],
+      "positioning": "Behind tank or at safe distance",
+      "never_place": "in_front_of_tank"
+    },
+    "minions": {
+      "strong_against": ["ground_only_troops", "musketeer", "wizard"],
+      "weak_against": ["archers", "musketeer", "baby_dragon", "arrows"],
+      "positioning": "Above enemy troops to avoid ground damage",
+      "purpose": "Bypass ground defenses"
+    },
+    "giant": {
+      "role": "tank",
+      "purpose": "Absorb damage while support deals damage",
+      "positioning": "Front line, always first",
+      "support_timing": "After Giant crosses bridge"
+    },
+    "fireball": {
+      "targets": "Grouped troops 4+ elixir value, low HP towers",
+      "never_target": "Single low-value troops, cycling, own towers",
+      "positioning": "Center of enemy group or direct tower hit"
+    },
+    "spear_goblins": {
+      "role": "cycle_and_distraction",
+      "purpose": "Cheap cycle, distraction, emergency defense",
+      "positioning": "Safe distance for cycle, front for distraction"
+    }
+  }
+}

@@ -1,0 +1,16 @@
+{
+  "generation_id": 1,
+  "created_at": 1755862193.7051873,
+  "performance": {
+    "win_rate": 0.65,
+    "games_played": 15,
+    "avg_score": 0.7,
+    "best_score": 0.9,
+    "last_result": "victory"
+  },
+  "model_info": {
+    "type": "RandomForestRegressor",
+    "n_estimators": 10,
+    "max_depth": null
+  }
+}

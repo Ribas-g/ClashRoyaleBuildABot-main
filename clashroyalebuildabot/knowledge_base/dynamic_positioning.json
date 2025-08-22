@@ -1,0 +1,392 @@
+{
+  "positioning_analysis": {
+    "situation_factors": {
+      "enemy_units": {
+        "description": "Análise das unidades inimigas no campo",
+        "factors": [
+          "enemy_tank_position",
+          "enemy_support_position", 
+          "enemy_air_units",
+          "enemy_ground_units",
+          "enemy_swarm_units"
+        ]
+      },
+      "our_units": {
+        "description": "Análise das nossas unidades no campo",
+        "factors": [
+          "our_tank_position",
+          "our_support_position",
+          "our_buildings",
+          "our_air_units"
+        ]
+      },
+      "game_state": {
+        "description": "Estado atual do jogo",
+        "factors": [
+          "elixir_advantage",
+          "tower_health",
+          "game_time",
+          "under_pressure",
+          "advantage"
+        ]
+      },
+      "card_type": {
+        "description": "Tipo e propósito da carta",
+        "factors": [
+          "is_tank",
+          "is_support",
+          "is_spell",
+          "is_building",
+          "is_swarm",
+          "is_air_unit"
+        ]
+      }
+    },
+    "positioning_strategies": {
+      "tank_positioning": {
+        "description": "Estratégias para posicionamento de tanks",
+        "strategies": {
+          "bridge_push": {
+            "description": "Push agressivo no bridge",
+            "conditions": [
+              "elixir_advantage >= 2",
+              "not_under_pressure",
+              "enemy_committed_elixir"
+            ],
+            "position_logic": "find_bridge_position",
+            "priority": "high"
+          },
+          "center_defense": {
+            "description": "Defesa no centro",
+            "conditions": [
+              "under_pressure",
+              "enemy_tank_approaching"
+            ],
+            "position_logic": "find_center_defense_position",
+            "priority": "high"
+          },
+          "split_push": {
+            "description": "Dividir pressão em duas lanes",
+            "conditions": [
+              "enemy_committed_one_lane",
+              "elixir_advantage >= 1"
+            ],
+            "position_logic": "find_opposite_lane_position",
+            "priority": "medium"
+          },
+          "counter_push": {
+            "description": "Counter push após defender",
+            "conditions": [
+              "just_defended_successfully",
+              "surviving_units"
+            ],
+            "position_logic": "find_counter_push_position",
+            "priority": "medium"
+          }
+        }
+      },
+      "support_positioning": {
+        "description": "Estratégias para posicionamento de suporte",
+        "strategies": {
+          "behind_tank": {
+            "description": "Suporte atrás do tank",
+            "conditions": [
+              "tank_on_field",
+              "tank_health > 50%"
+            ],
+            "position_logic": "find_position_behind_tank",
+            "priority": "high"
+          },
+          "air_defense": {
+            "description": "Defesa contra unidades aéreas",
+            "conditions": [
+              "enemy_air_units",
+              "need_air_defense"
+            ],
+            "position_logic": "find_air_defense_position",
+            "priority": "high"
+          },
+          "swarm_defense": {
+            "description": "Defesa contra swarm",
+            "conditions": [
+              "enemy_swarm_units",
+              "swarm_approaching_tower"
+            ],
+            "position_logic": "find_swarm_defense_position",
+            "priority": "high"
+          },
+          "cycle_position": {
+            "description": "Posição para cycling",
+            "conditions": [
+              "need_to_cycle",
+              "safe_position"
+            ],
+            "position_logic": "find_safe_cycle_position",
+            "priority": "low"
+          }
+        }
+      },
+      "spell_positioning": {
+        "description": "Estratégias para posicionamento de spells",
+        "strategies": {
+          "group_damage": {
+            "description": "Dano em grupo de tropas",
+            "conditions": [
+              "enemy_group_3+",
+              "spell_can_hit_group"
+            ],
+            "position_logic": "find_group_center_position",
+            "priority": "high"
+          },
+          "tower_damage": {
+            "description": "Dano direto na torre",
+            "conditions": [
+              "tower_low_health",
+              "elixir_advantage"
+            ],
+            "position_logic": "find_tower_position",
+            "priority": "medium"
+          },
+          "inferno_reset": {
+            "description": "Resetar inferno tower/dragon",
+            "conditions": [
+              "inferno_targeting_tank",
+              "tank_important"
+            ],
+            "position_logic": "find_inferno_position",
+            "priority": "high"
+          },
+          "finish_low_health": {
+            "description": "Finalizar tropas com pouca vida",
+            "conditions": [
+              "enemy_low_health_units",
+              "spell_can_kill"
+            ],
+            "position_logic": "find_low_health_position",
+            "priority": "medium"
+          }
+        }
+      },
+      "building_positioning": {
+        "description": "Estratégias para posicionamento de buildings",
+        "strategies": {
+          "tank_distraction": {
+            "description": "Distrair tank inimigo",
+            "conditions": [
+              "enemy_tank_approaching",
+              "building_can_distract"
+            ],
+            "position_logic": "find_tank_distraction_position",
+            "priority": "high"
+          },
+          "center_attraction": {
+            "description": "Atrair tropas para o centro",
+            "conditions": [
+              "enemy_units_approaching",
+              "safe_to_attract"
+            ],
+            "position_logic": "find_center_attraction_position",
+            "priority": "medium"
+          },
+          "lane_control": {
+            "description": "Controlar uma lane específica",
+            "conditions": [
+              "important_lane",
+              "need_lane_control"
+            ],
+            "position_logic": "find_lane_control_position",
+            "priority": "medium"
+          }
+        }
+      }
+    },
+    "position_calculators": {
+      "find_bridge_position": {
+        "description": "Encontra posição ideal no bridge",
+        "logic": {
+          "primary": "tile_7_5",
+          "alternatives": ["tile_6_5", "tile_8_5"],
+          "conditions": {
+            "tile_7_5": "default_bridge",
+            "tile_6_5": "safer_bridge",
+            "tile_8_5": "aggressive_bridge"
+          }
+        }
+      },
+      "find_center_defense_position": {
+        "description": "Encontra posição defensiva no centro",
+        "logic": {
+          "primary": "tile_4_5",
+          "alternatives": ["tile_3_5", "tile_5_5"],
+          "conditions": {
+            "tile_4_5": "center_defense",
+            "tile_3_5": "back_defense",
+            "tile_5_5": "forward_defense"
+          }
+        }
+      },
+      "find_position_behind_tank": {
+        "description": "Encontra posição atrás do tank",
+        "logic": {
+          "primary": "tile_6_5",
+          "alternatives": ["tile_5_5", "tile_7_5"],
+          "conditions": {
+            "tile_6_5": "behind_tank",
+            "tile_5_5": "further_back",
+            "tile_7_5": "beside_tank"
+          }
+        }
+      },
+      "find_air_defense_position": {
+        "description": "Encontra posição para defesa aérea",
+        "logic": {
+          "primary": "tile_4_5",
+          "alternatives": ["tile_3_5", "tile_5_5"],
+          "conditions": {
+            "tile_4_5": "center_air_defense",
+            "tile_3_5": "back_air_defense",
+            "tile_5_5": "forward_air_defense"
+          }
+        }
+      },
+      "find_group_center_position": {
+        "description": "Encontra centro do grupo inimigo",
+        "logic": {
+          "primary": "calculate_group_center",
+          "alternatives": ["tile_4_5", "tile_5_5"],
+          "conditions": {
+            "calculate_group_center": "dynamic_group_center",
+            "tile_4_5": "center_fallback",
+            "tile_5_5": "forward_fallback"
+          }
+        }
+      },
+      "find_tower_position": {
+        "description": "Encontra posição para dano na torre",
+        "logic": {
+          "primary": "tile_8_5",
+          "alternatives": ["tile_7_5", "tile_6_5"],
+          "conditions": {
+            "tile_8_5": "direct_tower_damage",
+            "tile_7_5": "tower_damage_with_splash",
+            "tile_6_5": "safe_tower_damage"
+          }
+        }
+      },
+      "find_inferno_position": {
+        "description": "Encontra posição para resetar inferno",
+        "logic": {
+          "primary": "calculate_inferno_position",
+          "alternatives": ["tile_4_5", "tile_5_5"],
+          "conditions": {
+            "calculate_inferno_position": "dynamic_inferno_position",
+            "tile_4_5": "center_stun",
+            "tile_5_5": "forward_stun"
+          }
+        }
+      },
+      "find_tank_distraction_position": {
+        "description": "Encontra posição para distrair tank",
+        "logic": {
+          "primary": "tile_4_5",
+          "alternatives": ["tile_3_5", "tile_5_5"],
+          "conditions": {
+            "tile_4_5": "center_distraction",
+            "tile_3_5": "back_distraction",
+            "tile_5_5": "forward_distraction"
+          }
+        }
+      }
+    },
+    "dynamic_analysis": {
+      "enemy_analysis": {
+        "tank_detection": {
+          "description": "Detecta tanks inimigos",
+          "tanks": ["giant", "pekka", "golem", "royal_giant", "electro_giant"],
+          "analysis": "position_and_health"
+        },
+        "support_detection": {
+          "description": "Detecta suporte inimigo",
+          "supports": ["musketeer", "witch", "baby_dragon", "archers"],
+          "analysis": "position_and_type"
+        },
+        "swarm_detection": {
+          "description": "Detecta swarm inimigo",
+          "swarms": ["minions", "bats", "skeleton_army", "goblin_gang"],
+          "analysis": "group_position_and_size"
+        },
+        "air_detection": {
+          "description": "Detecta unidades aéreas",
+          "air_units": ["baby_dragon", "minions", "bats", "balloon", "lava_hound"],
+          "analysis": "position_and_threat"
+        }
+      },
+      "our_analysis": {
+        "tank_position": {
+          "description": "Analisa posição do nosso tank",
+          "analysis": "position_health_and_target"
+        },
+        "support_position": {
+          "description": "Analisa posição do nosso suporte",
+          "analysis": "position_and_effectiveness"
+        },
+        "building_position": {
+          "description": "Analisa posição das nossas buildings",
+          "analysis": "position_and_health"
+        }
+      },
+      "situation_analysis": {
+        "pressure_analysis": {
+          "description": "Analisa pressão no jogo",
+          "factors": [
+            "enemy_units_near_tower",
+            "tower_health",
+            "elixir_disadvantage"
+          ]
+        },
+        "advantage_analysis": {
+          "description": "Analisa vantagem no jogo",
+          "factors": [
+            "elixir_advantage",
+            "tower_health_advantage",
+            "unit_advantage"
+          ]
+        },
+        "timing_analysis": {
+          "description": "Analisa timing do jogo",
+          "factors": [
+            "game_time",
+            "double_elixir",
+            "overtime"
+          ]
+        }
+      }
+    }
+  },
+  "position_priorities": {
+    "high_priority": [
+      "tank_distraction",
+      "air_defense",
+      "inferno_reset",
+      "group_damage"
+    ],
+    "medium_priority": [
+      "bridge_push",
+      "center_defense",
+      "tower_damage",
+      "behind_tank"
+    ],
+    "low_priority": [
+      "cycle_position",
+      "split_push",
+      "counter_push"
+    ]
+  },
+  "fallback_positions": {
+    "default_offensive": "tile_7_5",
+    "default_defensive": "tile_4_5",
+    "default_support": "tile_6_5",
+    "default_spell": "tile_4_5",
+    "default_building": "tile_4_5"
+  }
+}

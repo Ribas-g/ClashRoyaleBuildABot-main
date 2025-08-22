@@ -14,7 +14,18 @@ class DeckAnalyzer:
     def __init__(self, save_path="deck_memory.json"):
         self.save_path = save_path
         self.current_game = None
-        self.deck_memory = self.load_memory()
+        try:
+            self.deck_memory = self.load_memory()
+            logger.debug("Deck memory loaded successfully")
+        except Exception as e:
+            logger.error(f"Error loading deck memory: {e}")
+            # Usar memória vazia como fallback
+            self.deck_memory = {
+                'games': [],
+                'deck_patterns': {},
+                'card_frequencies': {},
+                'cycle_analysis': {}
+            }
         
         # Cartas conhecidas do Clash Royale
         self.all_cards = {

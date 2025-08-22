@@ -1,0 +1,189 @@
+{
+  "game_states": {
+    "counter_attack_after_defense": {
+      "description": "Contra-ataque após defender com sucesso",
+      "conditions": [
+        "recently_defended",
+        "enemy_overcommitted",
+        "elixir >= 5"
+      ],
+      "recommended_actions": [
+        "giant_bridge_push",
+        "minions_pressure",
+        "knight_counter_push"
+      ],
+      "timing": "immediate",
+      "elixir_range": [5, 8]
+    },
+    "giant_combo_preparation": {
+      "description": "Preparação para combo Giant + suporte",
+      "conditions": [
+        "giant_in_next_2_cards",
+        "support_available",
+        "elixir >= 6"
+      ],
+      "recommended_actions": [
+        "wait_for_elixir",
+        "cycle_if_necessary",
+        "clear_defensive_threats"
+      ],
+      "timing": "wait_for_optimal",
+      "elixir_range": [6, 10]
+    },
+    "giant_combo_execution": {
+      "description": "Execução do combo Giant + suporte",
+      "sequence": [
+        {
+          "step": 1,
+          "action": "place_giant_behind_king",
+          "position": {"tile_x": 8, "tile_y": 3},
+          "wait_for_elixir": 3
+        },
+        {
+          "step": 2,
+          "action": "add_support",
+          "cards": ["musketeer", "archers", "minions"],
+          "position": {"tile_x": 6, "tile_y": 5},
+          "timing": "when_giant_crosses_bridge"
+        }
+      ],
+      "total_elixir_needed": 8,
+      "success_indicators": ["tower_damage", "elixir_positive_trade"]
+    },
+    "air_pressure": {
+      "description": "Pressão aérea com Minions",
+      "conditions": [
+        "enemy_no_air_defense",
+        "minions_available",
+        "elixir >= 3"
+      ],
+      "recommended_actions": [
+        "minions_tower_attack",
+        "split_pressure"
+      ],
+      "counter_risks": ["arrows", "fireball", "musketeer"]
+    },
+    "spell_cycle": {
+      "description": "Ciclo com Fireball para dano direto",
+      "conditions": [
+        "tower_low_hp",
+        "fireball_available",
+        "safe_to_spell"
+      ],
+      "recommended_actions": [
+        "fireball_tower_damage",
+        "cycle_to_fireball_again"
+      ],
+      "elixir_efficiency": "depends_on_tower_hp"
+    },
+    "defensive_adaptation": {
+      "description": "Adaptação de cartas ofensivas para defesa",
+      "examples": {
+        "minions_vs_ground": {
+          "situation": "Enemy has no air defense",
+          "adaptation": "Use minions defensively against ground troops"
+        },
+        "giant_as_tank": {
+          "situation": "Under heavy pressure",
+          "adaptation": "Use giant as defensive tank to absorb damage"
+        },
+        "knight_counter_push": {
+          "situation": "Successfully defended",
+          "adaptation": "Knight becomes offensive in counter-push"
+        }
+      }
+    }
+  },
+  "combo_systems": {
+    "giant_push": {
+      "primary_card": "giant",
+      "support_cards": ["musketeer", "archers", "minions"],
+      "spell_support": ["fireball"],
+      "positioning": {
+        "giant": {"tile_x": 8, "tile_y": 3, "description": "Behind king tower"},
+        "support": {"tile_x": 6, "tile_y": 5, "description": "Behind giant when it crosses"}
+      },
+      "timing": {
+        "start_condition": "elixir >= 8 AND support_available",
+        "support_timing": "when_giant_at_bridge",
+        "spell_timing": "when_enemy_counters"
+      },
+      "expected_outcome": "tower_damage_or_destruction"
+    },
+    "air_swarm": {
+      "primary_card": "minions",
+      "support_cards": ["spear_goblins"],
+      "positioning": {
+        "minions": {"tile_x": 8, "tile_y": 4, "description": "Direct tower attack"},
+        "support": {"tile_x": 12, "tile_y": 8, "description": "Split pressure"}
+      },
+      "timing": {
+        "start_condition": "enemy_no_air_defense AND elixir >= 5"
+      }
+    },
+    "counter_push": {
+      "trigger": "successful_defense",
+      "cards": ["knight", "minipekka", "archers"],
+      "positioning": "bridge_immediate",
+      "timing": "immediately_after_defense",
+      "elixir_requirement": 3
+    }
+  },
+  "card_role_adaptation": {
+    "context_based_roles": {
+      "minipekka": {
+        "primary_role": "tank_killer",
+        "secondary_role": "counter_push_damage",
+        "emergency_role": "last_resort_defense",
+        "adaptation_logic": {
+          "vs_giant": "primary_role",
+          "after_defense": "secondary_role",
+          "tower_threat": "emergency_role"
+        }
+      },
+      "knight": {
+        "primary_role": "mini_tank_defense",
+        "secondary_role": "counter_push_tank",
+        "emergency_role": "distraction",
+        "adaptation_logic": {
+          "vs_single_target": "primary_role",
+          "after_defense": "secondary_role",
+          "desperate": "emergency_role"
+        }
+      },
+      "minions": {
+        "primary_role": "air_attack",
+        "secondary_role": "ground_counter",
+        "emergency_role": "air_defense",
+        "adaptation_logic": {
+          "vs_ground_only": "primary_role",
+          "vs_musketeer": "secondary_role",
+          "vs_baby_dragon": "emergency_role"
+        }
+      }
+    }
+  },
+  "strategic_patterns": {
+    "elixir_management": {
+      "save_for_combo": {
+        "condition": "giant_in_next_2_cards",
+        "target_elixir": 8,
+        "actions": ["cycle_cheap", "defensive_only"]
+      },
+      "punish_overcommit": {
+        "condition": "enemy_spent_6plus_elixir",
+        "actions": ["immediate_counter", "opposite_lane_pressure"]
+      }
+    },
+    "timing_patterns": {
+      "wait_and_strike": {
+        "description": "Aguardar momento ideal para big push",
+        "indicators": ["elixir_advantage", "combo_ready", "enemy_low_elixir"]
+      },
+      "reactive_defense": {
+        "description": "Defesa reativa baseada na ameaça",
+        "priority": "counter_specific_threat"
+      }
+    }
+  }
+}

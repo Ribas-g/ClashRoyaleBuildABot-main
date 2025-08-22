@@ -17,12 +17,12 @@ class _ScreensNamespace:
     LOBBY: Screen = Screen(
         "lobby",
         (424, 126, 506, 181),
-        (360, 820),
+        (360, 990),
     )
     END_OF_GAME: Screen = Screen(
         "end_of_game",
-        (279, 1095, 440, 1154),
-        (360, 1125),
+        (200, 300, 520, 800),    # Região ampla para capturar coroas, banners e botões
+        (250, 1140),             # Coordenada correta do botão "Jogar de NOVO"
     )
 
 

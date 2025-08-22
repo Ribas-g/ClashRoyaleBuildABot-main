@@ -1,0 +1,397 @@
+{
+  "card_purposes": {
+    "giant": {
+      "type": "win_condition",
+      "purpose": "Tank principal para push ofensivo",
+      "usage": "Jogar no bridge para iniciar push",
+      "positioning": {
+        "offensive": {
+          "tile_x": 7,
+          "tile_y": 5,
+          "description": "Bridge para iniciar push"
+        },
+        "defensive": {
+          "tile_x": 4,
+          "tile_y": 5,
+          "description": "Centro para defender"
+        }
+      },
+      "when_to_use": [
+        "elixir_advantage",
+        "enemy_committed",
+        "counter_push_opportunity"
+      ],
+      "avoid_using": [
+        "low_elixir",
+        "enemy_has_counters",
+        "under_pressure"
+      ]
+    },
+    "musketeer": {
+      "type": "support",
+      "purpose": "Dano aéreo e terrestre, suporte de longo alcance",
+      "usage": "Posicionar atrás de tank ou para defender",
+      "positioning": {
+        "offensive": {
+          "tile_x": 6,
+          "tile_y": 5,
+          "description": "Atrás do tank para suporte"
+        },
+        "defensive": {
+          "tile_x": 3,
+          "tile_y": 5,
+          "description": "Centro defensivo"
+        }
+      },
+      "when_to_use": [
+        "need_air_defense",
+        "support_tank",
+        "defend_against_single_target"
+      ],
+      "avoid_using": [
+        "enemy_has_fireball",
+        "swarm_attack",
+        "low_elixir"
+      ]
+    },
+    "minipekka": {
+      "type": "counter",
+      "purpose": "Counter de tanks e dano alto",
+      "usage": "Defender contra tanks ou push ofensivo",
+      "positioning": {
+        "offensive": {
+          "tile_x": 7,
+          "tile_y": 5,
+          "description": "Bridge para push"
+        },
+        "defensive": {
+          "tile_x": 4,
+          "tile_y": 5,
+          "description": "Centro para defender tanks"
+        }
+      },
+      "when_to_use": [
+        "enemy_giant",
+        "enemy_pekka",
+        "counter_push_opportunity"
+      ],
+      "avoid_using": [
+        "enemy_swarm",
+        "enemy_air_units",
+        "low_elixir"
+      ]
+    },
+    "fireball": {
+      "type": "spell",
+      "purpose": "Dano de área, eliminar grupos de tropas",
+      "usage": "Usar em grupos de tropas ou para dano na torre",
+      "positioning": {
+        "offensive": {
+          "tile_x": 8,
+          "tile_y": 5,
+          "description": "Na torre inimiga"
+        },
+        "defensive": {
+          "tile_x": 4,
+          "tile_y": 5,
+          "description": "Centro para eliminar tropas"
+        }
+      },
+      "when_to_use": [
+        "enemy_group_3+",
+        "tower_damage_opportunity",
+        "elixir_advantage"
+      ],
+      "avoid_using": [
+        "single_target",
+        "low_elixir",
+        "waste_damage"
+      ]
+    },
+    "zap": {
+      "type": "spell",
+      "purpose": "Stun e dano baixo, resetar inferno",
+      "usage": "Stun tropas ou resetar inferno tower/dragon",
+      "positioning": {
+        "offensive": {
+          "tile_x": 7,
+          "tile_y": 5,
+          "description": "Centro para stun"
+        },
+        "defensive": {
+          "tile_x": 4,
+          "tile_y": 5,
+          "description": "Centro para stun"
+        }
+      },
+      "when_to_use": [
+        "reset_inferno",
+        "stun_swarm",
+        "finish_low_health"
+      ],
+      "avoid_using": [
+        "high_health_targets",
+        "waste_stun",
+        "low_elixir"
+      ]
+    },
+    "knight": {
+      "type": "tank",
+      "purpose": "Tank barato, defender e counter",
+      "usage": "Defender contra tropas únicas ou counter",
+      "positioning": {
+        "offensive": {
+          "tile_x": 6,
+          "tile_y": 5,
+          "description": "Centro para push"
+        },
+        "defensive": {
+          "tile_x": 3,
+          "tile_y": 5,
+          "description": "Centro defensivo"
+        }
+      },
+      "when_to_use": [
+        "defend_single_target",
+        "counter_push",
+        "cheap_defense"
+      ],
+      "avoid_using": [
+        "enemy_swarm",
+        "enemy_air",
+        "waste_tank"
+      ]
+    },
+    "archers": {
+      "type": "support",
+      "purpose": "Suporte barato, dano aéreo e terrestre",
+      "usage": "Suporte de longo alcance ou defesa barata",
+      "positioning": {
+        "offensive": {
+          "tile_x": 6,
+          "tile_y": 5,
+          "description": "Atrás do tank"
+        },
+        "defensive": {
+          "tile_x": 3,
+          "tile_y": 5,
+          "description": "Centro defensivo"
+        }
+      },
+      "when_to_use": [
+        "cheap_support",
+        "air_defense",
+        "cycle_card"
+      ],
+      "avoid_using": [
+        "enemy_fireball",
+        "enemy_poison",
+        "waste_support"
+      ]
+    },
+    "spear_goblins": {
+      "type": "cycle",
+      "purpose": "Carta mais barata para cycle e defesa",
+      "usage": "Cycle, defesa barata ou distração",
+      "positioning": {
+        "offensive": {
+          "tile_x": 12,
+          "tile_y": 8,
+          "description": "Split push ou distração"
+        },
+        "defensive": {
+          "tile_x": 8,
+          "tile_y": 11,
+          "description": "Defesa barata e distração"
+        },
+        "cycle": {
+          "tile_x": 3,
+          "tile_y": 8,
+          "description": "Posição segura para cycle"
+        }
+      },
+      "when_to_use": [
+        "cycle_deck",
+        "cheap_defense",
+        "distract_troops",
+        "emergency_defense",
+        "low_elixir"
+      ],
+      "avoid_using": [
+        "never"
+      ]
+    },
+    "cannon": {
+      "type": "building",
+      "purpose": "Construção defensiva barata",
+      "usage": "Defender contra tropas terrestres",
+      "positioning": {
+        "defensive": {
+          "tile_x": 4,
+          "tile_y": 5,
+          "description": "Centro para atrair tropas"
+        }
+      },
+      "when_to_use": [
+        "defend_ground",
+        "distract_tank",
+        "cheap_defense"
+      ],
+      "avoid_using": [
+        "enemy_air",
+        "enemy_spells",
+        "waste_building"
+      ]
+    },
+    "minions": {
+      "type": "swarm",
+      "purpose": "Swarm aéreo barato",
+      "usage": "Defender ou suporte aéreo",
+      "positioning": {
+        "offensive": {
+          "tile_x": 6,
+          "tile_y": 5,
+          "description": "Centro para push"
+        },
+        "defensive": {
+          "tile_x": 3,
+          "tile_y": 5,
+          "description": "Centro defensivo"
+        }
+      },
+      "when_to_use": [
+        "air_defense",
+        "support_tank",
+        "cycle_card"
+      ],
+      "avoid_using": [
+        "enemy_zap",
+        "enemy_arrows",
+        "waste_swarm"
+      ]
+    },
+    "bats": {
+      "type": "swarm",
+      "purpose": "Swarm aéreo muito barato",
+      "usage": "Defender ou cycle muito barato",
+      "positioning": {
+        "offensive": {
+          "tile_x": 6,
+          "tile_y": 5,
+          "description": "Centro para push"
+        },
+        "defensive": {
+          "tile_x": 3,
+          "tile_y": 5,
+          "description": "Centro defensivo"
+        }
+      },
+      "when_to_use": [
+        "cheap_cycle",
+        "air_defense",
+        "finish_low_health"
+      ],
+      "avoid_using": [
+        "enemy_zap",
+        "enemy_arrows",
+        "waste_cycle"
+      ]
+    },
+    "goblin_barrel": {
+      "type": "spell",
+      "purpose": "Dano direto na torre",
+      "usage": "Dano na torre ou bait de spells",
+      "positioning": {
+        "offensive": {
+          "tile_x": 8,
+          "tile_y": 5,
+          "description": "Na torre inimiga"
+        }
+      },
+      "when_to_use": [
+        "tower_damage",
+        "bait_spells",
+        "elixir_advantage"
+      ],
+      "avoid_using": [
+        "enemy_has_zap",
+        "enemy_has_arrows",
+        "low_elixir"
+      ]
+    }
+  },
+  "detection_improvements": {
+    "similar_cards": {
+      "musketeer_vs_minipekka": {
+        "musketeer": {
+          "visual_clues": ["ranged_weapon", "blue_uniform", "single_target"],
+          "size": "medium",
+          "color": "blue_white"
+        },
+        "minipekka": {
+          "visual_clues": ["melee_weapon", "dark_armor", "single_target"],
+          "size": "medium",
+          "color": "dark_gray"
+        }
+      },
+      "fireball_vs_poison": {
+        "fireball": {
+          "visual_clues": ["red_orange", "instant_damage", "circular"],
+          "size": "medium",
+          "color": "red_orange"
+        },
+        "poison": {
+          "visual_clues": ["purple_green", "dot_damage", "cloud_effect"],
+          "size": "medium",
+          "color": "purple_green"
+        }
+      }
+    },
+    "blank_card_handling": {
+      "detection_methods": [
+        "multiple_attempts",
+        "different_angles",
+        "brightness_adjustment",
+        "contrast_enhancement"
+      ],
+      "fallback_strategy": "use_last_known_card"
+    }
+  },
+  "positioning_rules": {
+    "general_rules": {
+      "tank_first": "Sempre jogar tank antes do suporte",
+      "support_behind": "Suporte sempre atrás do tank",
+      "spells_center": "Spells no centro para máximo alcance",
+      "buildings_center": "Buildings no centro para atrair tropas"
+    },
+    "lane_selection": {
+      "offensive": "Usar lane onde há vantagem",
+      "defensive": "Usar lane onde há pressão",
+      "split_pressure": "Dividir tropas em duas lanes"
+    },
+    "tile_priorities": {
+      "bridge": "Tile 7,5 para push ofensivo",
+      "center": "Tile 4,5 para defesa",
+      "back": "Tile 3,5 para suporte",
+      "tower": "Tile 8,5 para spells"
+    }
+  },
+  "usage_conditions": {
+    "elixir_thresholds": {
+      "win_condition": 5,
+      "support": 3,
+      "spell": 2,
+      "cycle": 1
+    },
+    "situation_analysis": {
+      "advantage": "Jogar agressivamente",
+      "disadvantage": "Jogar defensivamente",
+      "equilibrium": "Jogar equilibrado"
+    },
+    "counter_priority": {
+      "high": "Tanks e win conditions",
+      "medium": "Suporte e swarm",
+      "low": "Spells e cycle"
+    }
+  }
+}

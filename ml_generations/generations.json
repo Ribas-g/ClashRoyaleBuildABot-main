@@ -1,0 +1,19 @@
+{
+  "current_generation": 1,
+  "generations": {
+    "1": {
+      "path": "ml_generations\\generation_1",
+      "created_at": 1755862193.705697,
+      "performance": {
+        "win_rate": 0.65,
+        "games_played": 15,
+        "avg_score": 0.7,
+        "best_score": 0.9,
+        "last_result": "victory"
+      },
+      "model_path": "ml_generations\\generation_1\\model.pkl",
+      "metrics_path": "ml_generations\\generation_1\\metrics.json"
+    }
+  },
+  "last_updated": 1755862193.705697
+}

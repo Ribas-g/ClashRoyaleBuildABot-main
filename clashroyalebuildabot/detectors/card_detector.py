@@ -22,6 +22,16 @@ class CardDetector:
 
         self.cards.extend([Cards.BLANK for _ in range(5)])
         self.card_hashes = self._calculate_card_hashes()
+        
+        # Mapeamento de cartas similares para melhorar detecção
+        self.similar_cards = {
+            'minipekka': ['musketeer', 'knight'],
+            'musketeer': ['minipekka', 'archers'],
+            'archers': ['musketeer', 'minipekka'],
+            'arrows': ['zap', 'fireball'],
+            'zap': ['arrows', 'fireball'],
+            'fireball': ['arrows', 'zap']
+        }
 
     def _calculate_multi_hash(self, image):
         gray_image = self._calculate_hash(image)
@@ -80,7 +90,85 @@ class CardDetector:
         _, idx = linear_sum_assignment(hash_diffs)
         cards = [self.cards[i] for i in idx]
 
+        # Pós-processamento para melhorar detecção
+        cards = self._post_process_detection(cards, hash_diffs)
+        
         return cards, crops
+
+    def _post_process_detection(self, cards, hash_diffs):
+        """Pós-processa a detecção para reduzir erros comuns"""
+        improved_cards = []
+        
+        for i, card in enumerate(cards):
+            card_name = card.name
+            
+            # Se detectou como "blank", tenta melhorar
+            if card_name == "blank":
+                # Procura por cartas similares que podem ter sido confundidas
+                best_alternative = self._find_best_alternative(i, hash_diffs)
+                if best_alternative:
+                    improved_cards.append(best_alternative)
+                else:
+                    improved_cards.append(card)
+            
+            # Melhora detecção de cartas similares
+            elif card_name in self.similar_cards:
+                # Verifica se há uma carta similar com score melhor
+                better_card = self._check_similar_cards(i, card_name, hash_diffs)
+                if better_card:
+                    improved_cards.append(better_card)
+                else:
+                    improved_cards.append(card)
+            
+            else:
+                improved_cards.append(card)
+        
+        return improved_cards
+
+    def _find_best_alternative(self, card_index, hash_diffs):
+        """Encontra a melhor alternativa para uma carta detectada como blank"""
+        # Procura por cartas com scores baixos (melhor match)
+        best_score = float('inf')
+        best_card = None
+        
+        for i, card in enumerate(self.cards):
+            if card.name != "blank":
+                score = hash_diffs[card_index, i]
+                if score < best_score:
+                    best_score = score
+                    best_card = card
+        
+        # Só usa alternativa se o score for bom o suficiente
+        if best_score < 50:  # Threshold ajustável
+            return best_card
+        return None
+
+    def _check_similar_cards(self, card_index, detected_name, hash_diffs):
+        """Verifica se há uma carta similar com score melhor"""
+        similar_names = self.similar_cards.get(detected_name, [])
+        current_score = hash_diffs[card_index, self.cards.index(self._get_card_by_name(detected_name))]
+        
+        best_card = self._get_card_by_name(detected_name)
+        best_score = current_score
+        
+        for similar_name in similar_names:
+            similar_card = self._get_card_by_name(similar_name)
+            if similar_card:
+                similar_index = self.cards.index(similar_card)
+                similar_score = hash_diffs[card_index, similar_index]
+                
+                if similar_score < best_score:
+                    best_score = similar_score
+                    best_card = similar_card
+        
+        return best_card
+
+    def _get_card_by_name(self, name):
+        """Obtém uma carta pelo nome"""
+        for card in self.cards:
+            if card.name == name:
+                return card
+        return None
 
     def _detect_if_ready(self, crops):
         ready = []

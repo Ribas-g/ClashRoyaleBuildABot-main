@@ -1,0 +1,11 @@
+[
+  {
+    "timestamp": "2025-08-22T10:19:09.143521",
+    "actions": [
+      {
+        "action": "archers at (3, 11)",
+        "action_index": 0,
+        "tile_x": 3,
+        "tile_y": 11,
+        "reward": 0.30000000000000004,
+        "elixir": 

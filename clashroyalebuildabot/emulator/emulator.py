@@ -41,52 +41,56 @@ class Emulator:
         self._start_updating_frame()
 
     def _get_valid_device_serial(self):
-        try:
-            logger.info(
-                f"Trying to connect to device '{self.device_serial}' from config."
-            )
-            self._run_command(["get-state"])
-            logger.info(
-                f"Successfully connected to the device '{self.device_serial}' from config."
-            )
-            return self.device_serial
-        except Exception as e:
-            logger.warning(
-                f"Device '{self.device_serial}' not found or not accessible: {str(e)}"
-            )
-            logger.warning(
-                "Trying to find a connected device via adb devices..."
-            )
-
+        # Se device_serial for 'auto', pular direto para detecção automática
+        if self.device_serial == "auto":
+            logger.info("Device serial set to 'auto', detecting available devices...")
+        else:
             try:
-                devices_output = subprocess.check_output(
-                    [ADB_PATH, "devices"]
-                ).decode("utf-8")
-                available_devices = [
-                    line.split()[0]
-                    for line in devices_output.splitlines()
-                    if "\tdevice" in line
-                ]
-
-                if not available_devices:
-                    raise WikifiedError(
-                        "006", "No connected devices found"
-                    ) from e
-
-                fallback_device_serial = available_devices[0]
                 logger.info(
-                    f"Using the first available device: {fallback_device_serial}"
+                    f"Trying to connect to device '{self.device_serial}' from config."
                 )
-                # Add delay to ensure device is ready
-                time.sleep(2)
-                return fallback_device_serial
-            except subprocess.CalledProcessError as adb_error:
-                logger.error(
-                    f"Failed to execute adb devices: {str(adb_error)}"
+                self._run_command(["get-state"])
+                logger.info(
+                    f"Successfully connected to the device '{self.device_serial}' from config."
                 )
+                return self.device_serial
+            except Exception as e:
+                logger.warning(
+                    f"Device '{self.device_serial}' not found or not accessible: {str(e)}"
+                )
+                logger.warning(
+                    "Trying to find a connected device via adb devices..."
+                )
+
+        try:
+            devices_output = subprocess.check_output(
+                [ADB_PATH, "devices"]
+            ).decode("utf-8")
+            available_devices = [
+                line.split()[0]
+                for line in devices_output.splitlines()
+                if "\tdevice" in line
+            ]
+
+            if not available_devices:
                 raise WikifiedError(
-                    "006", "Could not find a valid device to connect to."
-                ) from adb_error
+                    "006", "No connected devices found"
+                )
+
+            fallback_device_serial = available_devices[0]
+            logger.info(
+                f"Using the first available device: {fallback_device_serial}"
+            )
+            # Add delay to ensure device is ready
+            time.sleep(2)
+            return fallback_device_serial
+        except subprocess.CalledProcessError as adb_error:
+            logger.error(
+                f"Failed to execute adb devices: {str(adb_error)}"
+            )
+            raise WikifiedError(
+                "006", "Could not find a valid device to connect to."
+            ) from adb_error
 
     def _start_recording(self):
         cmd = (
@@ -177,6 +181,9 @@ class Emulator:
 
     def _update_frame(self):
         logger.debug("Starting to update frames...")
+        invalid_frame_count = 0
+        last_warning_time = 0
+        
         for line in iter(self.video_thread.stdout.readline, b""):
             try:
                 last_frame = self._get_last_frame(line)
@@ -188,29 +195,45 @@ class Emulator:
                     height=SCREENSHOT_HEIGHT,
                     format="rgb24",
                 ).to_image()
+                
+                # Reset contador quando conseguimos um frame válido
+                invalid_frame_count = 0
 
             except av.error.InvalidDataError as av_error:
-                logger.warning(f"Invalid video data, skipping frame: {av_error}")
+                invalid_frame_count += 1
+                current_time = time.time()
+                
+                # Log apenas a cada 10 segundos ou a cada 100 frames inválidos
+                if (current_time - last_warning_time > 10) or (invalid_frame_count % 100 == 0):
+                    logger.debug(f"Video data issues detected ({invalid_frame_count} invalid frames). This is normal with BlueStacks.")
+                    last_warning_time = current_time
                 continue
+                
             except Exception as e:
-                logger.error(f"Unexpected error in frame update: {str(e)}")
+                logger.debug(f"Frame processing error: {str(e)}")
                 continue
 
     def _get_last_frame(self, line):
         if not line:
             return None
 
-        if self.os_name == "windows":
-            line = line.replace(b"\r\n", b"\n")
+        try:
+            if self.os_name == "windows":
+                line = line.replace(b"\r\n", b"\n")
 
-        packets = self.codec.parse(line)
-        if not packets:
-            return None
+            packets = self.codec.parse(line)
+            if not packets:
+                return None
 
-        frames = self.codec.decode(packets[-1])
-        if not frames:
+            frames = self.codec.decode(packets[-1])
+            if not frames:
+                return None
+            return frames[-1]
+        except Exception as e:
+            # Log apenas erros inesperados, não os comuns de vídeo
+            if "Invalid data" not in str(e) and "no frame" not in str(e):
+                logger.debug(f"Frame parsing error: {str(e)}")
             return None
-        return frames[-1]
 
     def _start_updating_frame(self):
         self.frame_thread = threading.Thread(target=self._update_frame)
