@@ -71,11 +71,15 @@ class MainWindow(QMainWindow):
     def toggle_pause_resume_and_display(self):
         if not self.bot:
             return
-        if pause_event.is_set():
-            self.play_pause_button.setText("▶")
-        else:
-            self.play_pause_button.setText("⏸️")
-        self.bot.pause_or_resume()
+        try:
+            if pause_event.is_set():
+                self.play_pause_button.setText("▶")
+            else:
+                self.play_pause_button.setText("⏸️")
+            self.bot.pause_or_resume()
+        except Exception as e:
+            logger.error(f"Error in pause/resume: {e}")
+            self.append_log(f"❌ Pause/resume error: {str(e)}")
 
     def start_bot(self):
         if self.is_running:

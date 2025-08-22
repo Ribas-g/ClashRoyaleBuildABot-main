@@ -7,6 +7,7 @@ bot:
   # Create a deck code when the game starts
   load_deck: False
   auto_start_game: True
+  auto_restart: True  # Novo: Auto-restart após fim da partida
   enable_gui: True
 
 adb:

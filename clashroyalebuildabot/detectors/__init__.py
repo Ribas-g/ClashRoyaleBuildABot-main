@@ -5,6 +5,8 @@ from .number_detector import NumberDetector
 from .onnx_detector import OnnxDetector
 from .screen_detector import ScreenDetector
 from .unit_detector import UnitDetector
+from .advanced_detector import AdvancedDetector
+from .advanced_screen_detector import AdvancedScreenDetector
 
 __all__ = [
     "Detector",
@@ -13,4 +15,6 @@ __all__ = [
     "NumberDetector",
     "UnitDetector",
     "CardDetector",
+    "AdvancedDetector",
+    "AdvancedScreenDetector",
 ]
